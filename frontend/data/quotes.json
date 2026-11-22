@@ -1,0 +1,35 @@
+{
+ "_help": "Quotes shown in the Quotes section of the About page and the Home page. Add one object per quote: text and author as {kn,en}. Use \\n for a line break. Newest/most important first.",
+ "quotes": [
+  {
+   "text": {
+    "kn": "ಯಾವ ಕಾಲದ ಶಾಸ್ತ್ರವೇನು ಹೇಳಿದರೇನು?\nಎದೆಯ ದನಿಗೂ ಮಿಗಿಲು ಶಾಸ್ತ್ರವಿಹುದೇನು?",
+    "en": "What does the scripture of any age say, what does it matter?\nIs there any scripture greater than the voice of the heart?"
+   },
+   "author": {
+    "kn": "ಕುವೆಂಪು",
+    "en": "Kuvempu"
+   }
+  },
+  {
+   "text": {
+    "kn": "ಮನುಷ್ಯನ ಜೀವಿತ ಕಾಲವೇ ಒಂದು ಸುಮುಹೂರ್ತ.\nಇದರೊಳಗೆ ನೀನು ಬೇರೆ ಸುಮುಹೂರ್ತಗಳನ್ನೂ, ರಾಹುಕಾಲ, ಗುಳಿಕಕಾಲಗಳನ್ನೂ ನೋಡುವ ಅಗತ್ಯವಿಲ್ಲ.\nಕಾಲವು ನಿರ್ಗುಣ.",
+    "en": "A human being's whole lifetime is itself an auspicious moment.\nWithin it you need not look for other auspicious moments, nor Rahukala or Gulikakala.\nTime is without attributes."
+   },
+   "author": {
+    "kn": "ಕುವೆಂಪು",
+    "en": "Kuvempu"
+   }
+  },
+  {
+   "text": {
+    "kn": "ಮದುವೆ ಎಂದೂ ಮಹತ್ತರ ಘಟನೆಯಲ್ಲ. ಅನಂತರದ ಬದುಕು ಮುಖ್ಯವಾದುದು.",
+    "en": "Marriage is never a momentous event. The life that follows is what matters."
+   },
+   "author": {
+    "kn": "ಕೆ.ಪಿ.ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ",
+    "en": "K.P.Poornachandra Tejaswi"
+   }
+  }
+ ]
+}
