@@ -80,3 +80,14 @@ Sections (in order): Logo, Person Photos, Sample Invitations, Marriage Code Temp
 - **Leave a Reply** (bottom of the Guidance page) writes to the `Comments` sheet tab (`MM_USER_COMMENTS_SHEET_NAME`; auto-created: `Created Timestamp | Name | User Comment | Status`). New rows get Status `Pending for Approval`; change a row's Status to `Approved` and it appears on the page (newest first, 5 per page). Redeploy `Code.gs` after updating.
 - **Google tag** (GTM-W94Q4SH7) sits right after `<head>` in every page - keep exactly one per page.
 - Every page except About has an Expand all / Collapse all button (Guidance: applies to the open tab).
+
+## Form routing (important when deploying `Code.gs`)
+Each form posts an explicit `type`: contact form = `query` -> `Queries` sheet + "Query Submitted" mail; Leave a Reply = `comment` -> `Comments` sheet (no mail); Join Community = `community` -> `CommunityPeopleInfo` sheet + "Community" mail. Unknown types are rejected, nothing falls back to another sheet. Only rows with Status `Approved` are returned for display (Guidance and Community pages share the same comments).
+After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployments > Edit (pencil) > Version: **New version** > Deploy. Open `<your /exec URL>?action=ping` - it must show `"version":"v6-separate-forms"`; if not, the old script is still live (that is what sends everything to `Queries`).
+
+## Request call back, quotes, likes (v7)
+- **Request call back**: floating button on every page (`js/callback.js`). Saved to the `Queries` sheet with Topic "Call back request" and the help text in `Message`. No email is sent (no Email is collected).
+- **Quotes**: edit `frontend/data/quotes.json` (`text`/`author` in `kn` and `en`) to add more. Shown on About and in the Home About accordion.
+- **Comments sheet** columns: `Created Timestamp, Name, User Comment, Status, Comment Id, Like Count`. Missing columns are added automatically; older approved comments get an id when first listed. Likes are one per browser (localStorage `mm_liked`).
+- Leave a reply is on Home, Guidance and Community. Home shows Contact and Join Community side by side.
+- After pasting `backend/Code.gs`, publish a **New version** of the deployment. `?action=ping` should report `v7-likes-callback`.
