@@ -1,5 +1,7 @@
 name: Deploy frontend to GitHub Pages
 
+# Manual deploy only: GitHub > Actions > "Deploy frontend to GitHub Pages" > Run workflow.
+# Commits/pushes do NOT trigger a deployment.
 on:
   workflow_dispatch:
 
