@@ -1,4 +1,4 @@
-/* About page content (frontend only, Kannada + English). type: text | ideals | quote | origin | wedding | soon */
+/* About page content (frontend only, Kannada + English). type: text | ideals | quote | origin | wedding | quotes (from data/quotes.json) | soon */
 window.MM_ABOUT = [
 {
  id:"intro", icon:"bi-balloon-heart", type:"text",
@@ -54,5 +54,10 @@ window.MM_ABOUT = [
   "As Kuvempu wished, he sat on one side before the portraits of Sri Sitarama, Sri Ramakrishna Paramahamsa and Sri Sharada Devi, and Tejaswi and Rajeshwari sat on the other. Kuvempu recited the prayer he said daily at his Udayaravi home, then had the couple exchange garlands and tie the thali, conducting the very first Mantra Mangalya wedding in the simplest and most special way.",
   "To keep the gathering small, Tejaswi invited no one except a few close relatives and dear friends. But to let everyone know of the wedding, an invitation was written in Kuvempu's own handwriting and posted so that it would reach everyone on the wedding day itself, 27/11/1966. Notably, the invitation asked guests to come at their convenience, bless the couple and accept hospitality. In the end only about 30 to 40 people attended. Biryani Kariyappa, of 'Karvalo' fame, came and cooked the non-vegetarian meal, which was a special touch.",
   "After Tejaswi's wedding, the weddings of his friends Kadidal Shamanna and Sridevi, N. D. Sundaresh and Shobha, and Sriram and Padma were also held very simply in the Mantra Mangalya spirit. At the wedding of Tejaswi's sisters Indukala and Surendra, the renowned writer Sri Sujana, and at that of Tarini and Chidananda, Prabhushankara, taught the Mantra Mangalya and conducted the weddings. The inter-caste weddings of both of Tejaswi's children were also held in the Mantra Mangalya way. Beyond this, Nanjundaswamy and the Raitha Sangha made this simple wedding an integral part of their movement and conducted many mass weddings in the Mantra Mangalya way."]}
+},
+{
+ id:"quotes", icon:"bi-quote", type:"quotes",
+ kn:{ title:"ಮಹನೀಯರ ಮಾತುಗಳು" },
+ en:{ title:"Quotes from Great Personalities" }
 }
 ];

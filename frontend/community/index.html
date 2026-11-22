@@ -36,13 +36,33 @@
     <h2 data-i18n="com.join.title"></h2><p data-i18n="com.join.text"></p>
     <button type="button" class="btn btn-light" id="joinBtn"><i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span></button>
   </div></div></section>
+
+  <section class="block" id="comments" style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><h2 data-i18n="cm.title"></h2></div>
+    <div id="cmList"></div>
+    <h3 class="cm-reply" id="cmReply"><i class="bi bi-reply-fill"></i><span data-i18n="cm.reply"></span></h3>
+    <form class="form-card" id="cmForm" novalidate>
+      <div class="alert ok" id="cmOk" role="status"><i class="bi bi-check-circle-fill"></i><span></span></div>
+      <div class="alert bad" id="cmBad" role="alert"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+      <div class="field" data-k="name"><label for="cm-name"><span data-i18n="cm.name"></span> <span class="req">*</span></label>
+        <input id="cm-name" type="text" maxlength="30" autocomplete="name"><div class="err" role="alert"></div></div>
+      <div class="field" data-k="text"><label for="cm-text"><span data-i18n="cm.comment"></span> <span class="req">*</span></label>
+        <textarea id="cm-text" maxlength="500" data-i18n-placeholder="cm.ph"></textarea><div class="hint" id="cm-cnt">0/500</div><div class="err" role="alert"></div></div>
+      <input class="hp" id="cm-website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" id="cmSubmit" type="submit" style="width:100%"><i class="bi bi-send-fill"></i><span data-i18n="cm.submit"></span></button>
+    </form>
+  </div></section>
+
+
 </main>
 <div id="app-footer"></div>
 <script src="../js/config.js"></script>
 <script src="../data/manifest.js"></script>
 <script src="../js/i18n.js"></script>
 <script src="../js/app.js"></script>
+<script src="../js/callback.js"></script>
 <script src="../js/browse.js"></script>
 <script src="../js/community.js"></script>
+<script src="../js/comments.js"></script>
 </body>
 </html>

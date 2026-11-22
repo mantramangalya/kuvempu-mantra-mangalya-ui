@@ -220,6 +220,8 @@
     v.addEventListener('click', function (e) { if (e.target === v || e.target.classList.contains('viewer-stage')) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
+  var QUOTES = null;
+  function pickL(o) { return o == null ? '' : typeof o === 'string' ? o : (o[lang] || o.kn || o.en || ''); }
   function paras(a) { return '<div class="prose">' + a.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>'; }
   function body(s) {
     var d = s[lang];
@@ -233,6 +235,11 @@
         return '<div class="split">' + imgBlock(s.img, d.imgAlt, 'tall') + '<div><p class="prose" style="margin-bottom:14px">' + esc(d.intro) + '</p><blockquote class="quote">' + esc(d.quote) + '</blockquote></div></div>';
       case 'wedding':
         return '<div class="gallery2">' + s.imgs.map(function (m, k) { return imgBlock(m[0], d.caps[k], 'wide', d.caps[k]); }).join('') + '</div>' + paras(d.paras);
+      case 'quotes':
+        if (QUOTES === null) return '<div class="skeleton" style="min-height:90px"></div>';
+        return '<div class="quotes">' + QUOTES.map(function (q) {
+          return '<figure class="qcard"><i class="bi bi-quote qcard-i"></i><blockquote>' + esc(pickL(q.text)).replace(/\n/g, '<br>') + '</blockquote><figcaption>— ' + esc(pickL(q.author)) + '</figcaption></figure>';
+        }).join('') + '</div>';
       case 'soon':
         return '<div class="placeholder-box"><i class="bi bi-hourglass-split"></i><b>' + esc(t('soon')) + '</b><br>' + esc(t('soon.detail')) + '</div>';
     }
@@ -263,6 +270,8 @@
       $$('.acc', box).forEach(function (a) { a.classList.add('in'); });
     }
     draw(); document.addEventListener('mm:lang', draw);
+    fetch(ROOT + 'data/quotes.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (j) { QUOTES = (j.quotes || []).filter(function (x) { return x && x.text; }); })
+      .catch(function () { QUOTES = []; }).then(draw);
     var all = $('#expandAll');
     if (all) {
       var expanded = false;
@@ -374,7 +383,7 @@
       var payload = {
         'Name': $('#f-name').value.trim(), 'Contact Number': $('#f-phone').value.trim(), 'Email': $('#f-email').value.trim(),
         'Place': $('#f-place').value.trim(), 'Topic': sel.value, 'Message': $('#f-message').value.trim(),
-        'Language': lang === 'kn' ? 'Kannada' : 'English', 'lang': lang
+        'Language': lang === 'kn' ? 'Kannada' : 'English', 'lang': lang, 'type': 'query'
       };
       setBusy(true);
       fetch(C.API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload), redirect: 'follow' })

@@ -7,7 +7,7 @@ kn: {
  "title.home":"ಮುಖಪುಟ","title.about":"ಕುರಿತು","title.guidance":"ಮಾರ್ಗದರ್ಶನ","title.downloads":"ಡೌನ್‌ಲೋಡ್‌ಗಳು","title.community":"ಸಮುದಾಯ","title.contact":"ಸಂಪರ್ಕ",
  "hero.s1.title":"ಕುವೆಂಪು ಮಂತ್ರ ಮಾಂಗಲ್ಯ","hero.s1.text":"ಜಾತಿ, ಧರ್ಮ, ಭಾಷೆಗಳನ್ನು ಮೀರಿದ ಸರಳ ವಿವಾಹ — ಕುವೆಂಪು ಅವರ ಕೊಡುಗೆ","hero.s1.badge":"ರಾಷ್ಟ್ರಕವಿ ಕುವೆಂಪು ಪರಿಕಲ್ಪನೆ",
  "hero.s2.title":"27 ನವೆಂಬರ್ 1966","hero.s2.text":"ಮೂಡಿಗೆರೆ ಬಳಿಯ ಚಿತ್ರಕೂಟದಲ್ಲಿ ನಡೆದ ಮೊದಲ ಮಂತ್ರ ಮಾಂಗಲ್ಯ ವಿವಾಹ","hero.s2.badge":"ಒಂದು ಐತಿಹಾಸಿಕ ದಿನ",
- "hero.s3.title":"ಮದುವೆಗಿಂತ ಬದುಕು ಮುಖ್ಯ","hero.s3.text":"“ಮದುವೆ ಎಂದೂ ಮಹತ್ತರ ಘಟನೆಯಲ್ಲ. ಅನಂತರದ ಬದುಕು ಮುಖ್ಯವಾದುದು.” — ಕೆ. ಪಿ. ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ","hero.s3.badge":"ತೇಜಸ್ವಿ ನುಡಿ",
+ "hero.s3.title":"ಮದುವೆಗಿಂತ ಬದುಕು ಮುಖ್ಯ","hero.s3.text":"“ಮದುವೆ ಎಂದೂ ಮಹತ್ತರ ಘಟನೆಯಲ್ಲ. ಅನಂತರದ ಬದುಕು ಮುಖ್ಯವಾದುದು.” — ಕೆ.ಪಿ.ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ","hero.s3.badge":"ತೇಜಸ್ವಿ ನುಡಿ",
  "hero.cta1":"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ","hero.cta2":"ಸಂಪರ್ಕಿಸಿ","slider.prev":"ಹಿಂದಿನ","slider.next":"ಮುಂದಿನ",
  "home.about.title":"ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಕುರಿತು","home.about.sub":"ಎಲ್ಲ ವಿವರಗಳು ಒಂದೇ ನೋಟದಲ್ಲಿ — ತೆರೆಯಲು ಶೀರ್ಷಿಕೆಯನ್ನು ಒತ್ತಿರಿ",
  "btn.expand":"ಎಲ್ಲವನ್ನೂ ತೆರೆಯಿರಿ","btn.collapse":"ಎಲ್ಲವನ್ನೂ ಮುಚ್ಚಿರಿ","btn.readfull":"ಪೂರ್ಣ ಪುಟ ನೋಡಿ",
@@ -31,7 +31,7 @@ kn: {
  "topic.General guidance":"ಸಾಮಾನ್ಯ ಮಾರ್ಗದರ್ಶನ","topic.Wedding procedure":"ಮದುವೆ ವಿಧಾನ","topic.Wedding venue":"ಮದುವೆ ಸ್ಥಳ","topic.Someone to conduct wedding":"ಮದುವೆ ನಡೆಸಿಕೊಡುವವರು","topic.Marriage registration / Legal":"ವಿವಾಹ ನೋಂದಣಿ / ಕಾನೂನು","topic.Others":"ಇತರೆ",
  "err.name.req":"ಹೆಸರು ಅಗತ್ಯ.","err.name.len":"ಹೆಸರು 3 ರಿಂದ 30 ಅಕ್ಷರಗಳಿರಬೇಕು.","err.phone.req":"ಸಂಪರ್ಕ ಸಂಖ್ಯೆ ಅಗತ್ಯ.","err.phone.fmt":"6-9 ರಿಂದ ಆರಂಭವಾಗುವ ಸರಿಯಾದ 10 ಅಂಕಿಯ ಭಾರತೀಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನೀಡಿ.","err.email.req":"ಇಮೇಲ್ ಅಗತ್ಯ.","err.email.fmt":"ಸರಿಯಾದ ಇಮೇಲ್ ವಿಳಾಸ ನೀಡಿ.","err.place.req":"ಸ್ಥಳ ಅಗತ್ಯ.","err.place.len":"ಸ್ಥಳ ಗರಿಷ್ಠ 200 ಅಕ್ಷರಗಳಿರಬೇಕು.","err.topic.req":"ವಿಷಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ.","err.message.req":"ಸಂದೇಶ ಅಗತ್ಯ.",
  "form.ok":"ಧನ್ಯವಾದಗಳು! ನಿಮ್ಮ ಪ್ರಶ್ನೆ ಸಲ್ಲಿಕೆಯಾಗಿದೆ. ದೃಢೀಕರಣ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ. ನಾವು ಶೀಘ್ರದಲ್ಲೇ ಸಂಪರ್ಕಿಸುತ್ತೇವೆ.","form.fail":"ಕ್ಷಮಿಸಿ, ಸಲ್ಲಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಇಮೇಲ್ ಮಾಡಿ.","form.notconf":"ಬ್ಯಾಕ್‌ಎಂಡ್ ಇನ್ನೂ ಸಂಪರ್ಕಿಸಲಾಗಿಲ್ಲ (config.js ನೋಡಿ).",
- "foot.about":"ಕುವೆಂಪು ಅವರ ಪರಿಕಲ್ಪನೆಯ ಸರಳ, ಸಮಾನ ವಿಶ್ವಮಾನವ ವಿವಾಹ ಪದ್ಧತಿಯ ಸಂಪೂರ್ಣ ಮಾಹಿತಿ.","foot.links":"ಕೊಂಡಿಗಳು","foot.blogs":"ಬ್ಲಾಗ್‌ಗಳು","foot.blog.kuvempu":"ಕುವೆಂಪು ಬ್ಲಾಗ್","foot.blog.tejaswi":"ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ ಬ್ಲಾಗ್","foot.contact":"ಸಂಪರ್ಕ","foot.quote":"“ಮದುವೆ ಎಂದೂ ಮಹತ್ತರ ಘಟನೆಯಲ್ಲ. ಅನಂತರದ ಬದುಕು ಮುಖ್ಯವಾದುದು.” — ಕೆ. ಪಿ. ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ","foot.blog":"ಮೂಲ ಲೇಖನ","top":"ಮೇಲಕ್ಕೆ"
+ "foot.about":"ಕುವೆಂಪು ಅವರ ಪರಿಕಲ್ಪನೆಯ ಸರಳ, ಸಮಾನ ವಿಶ್ವಮಾನವ ವಿವಾಹ ಪದ್ಧತಿಯ ಸಂಪೂರ್ಣ ಮಾಹಿತಿ.","foot.links":"ಕೊಂಡಿಗಳು","foot.blogs":"ಬ್ಲಾಗ್‌ಗಳು","foot.blog.kuvempu":"ಕುವೆಂಪು ಬ್ಲಾಗ್","foot.blog.tejaswi":"ಕೆ.ಪಿ.ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ ಬ್ಲಾಗ್","foot.contact":"ಸಂಪರ್ಕ","foot.quote":"“ಮದುವೆ ಎಂದೂ ಮಹತ್ತರ ಘಟನೆಯಲ್ಲ. ಅನಂತರದ ಬದುಕು ಮುಖ್ಯವಾದುದು.” — ಕೆ.ಪಿ.ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ","foot.blog":"ಮೂಲ ಲೇಖನ","top":"ಮೇಲಕ್ಕೆ"
 },
 en: {
  "site.name":"Kuvempu Mantra Mangalya",
@@ -40,7 +40,7 @@ en: {
  "title.home":"Home","title.about":"About","title.guidance":"Guidance","title.downloads":"Downloads","title.community":"Community","title.contact":"Contact",
  "hero.s1.title":"Kuvempu Mantra Mangalya","hero.s1.text":"A simple wedding beyond caste, religion and language — Kuvempu's gift to society","hero.s1.badge":"Conceived by Rashtrakavi Kuvempu",
  "hero.s2.title":"27 November 1966","hero.s2.text":"The first Mantra Mangalya wedding, held at Chitrakoota near Mudigere","hero.s2.badge":"A historic day",
- "hero.s3.title":"Life matters more than the wedding","hero.s3.text":"“Marriage is never the great event. The life that follows is what matters.” — K. P. Poornachandra Tejaswi","hero.s3.badge":"Words of Tejaswi",
+ "hero.s3.title":"Life matters more than the wedding","hero.s3.text":"“Marriage is never the great event. The life that follows is what matters.” — K.P.Poornachandra Tejaswi","hero.s3.badge":"Words of Tejaswi",
  "hero.cta1":"Learn more","hero.cta2":"Contact us","slider.prev":"Previous","slider.next":"Next",
  "home.about.title":"About Mantra Mangalya","home.about.sub":"All the details in a single view — tap a heading to open it",
  "btn.expand":"Expand all","btn.collapse":"Collapse all","btn.readfull":"View full page",
@@ -64,6 +64,6 @@ en: {
  "topic.General guidance":"General guidance","topic.Wedding procedure":"Wedding procedure","topic.Wedding venue":"Wedding venue","topic.Someone to conduct wedding":"Someone to conduct wedding","topic.Marriage registration / Legal":"Marriage registration / Legal","topic.Others":"Others",
  "err.name.req":"Name is required.","err.name.len":"Name must be 3 to 30 characters.","err.phone.req":"Contact number is required.","err.phone.fmt":"Enter a valid 10-digit Indian mobile number starting with 6-9.","err.email.req":"Email is required.","err.email.fmt":"Enter a valid email address.","err.place.req":"Place is required.","err.place.len":"Place can be at most 200 characters.","err.topic.req":"Please select a topic.","err.message.req":"Message is required.",
  "form.ok":"Thank you! Your query has been submitted and a confirmation email has been sent. We will get back to you soon.","form.fail":"Sorry, we could not submit your query. Please try again or email us.","form.notconf":"Backend is not connected yet (see config.js).",
- "foot.about":"Complete information about Kuvempu's simple, equal and universal wedding tradition.","foot.links":"Links","foot.blogs":"Blogs","foot.blog.kuvempu":"Kuvempu Blog","foot.blog.tejaswi":"Poornachandra Tejaswi Blog","foot.contact":"Contact","foot.quote":"“Marriage is never the great event. The life that follows is what matters.” — K. P. Poornachandra Tejaswi","foot.blog":"Original article","top":"Back to top"
+ "foot.about":"Complete information about Kuvempu's simple, equal and universal wedding tradition.","foot.links":"Links","foot.blogs":"Blogs","foot.blog.kuvempu":"Kuvempu Blog","foot.blog.tejaswi":"K.P.Poornachandra Tejaswi Blog","foot.contact":"Contact","foot.quote":"“Marriage is never the great event. The life that follows is what matters.” — K.P.Poornachandra Tejaswi","foot.blog":"Original article","top":"Back to top"
 }
 };

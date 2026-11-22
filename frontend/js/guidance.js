@@ -217,53 +217,6 @@
       if (inited.gallery && S.videos !== undefined) drawGallery();
     });
 
-    /* ---------- Comments + Leave a Reply (backend sheet "Comments"; only approved comments are returned) ---------- */
-    (function comments() {
-      var B = window.MM_BROWSE, C = window.MM_CONFIG, list = null, state = 'loading', busy = false;
-      function drawList() {
-        var box = $('#cmList'); if (!box) return;
-        if (state === 'loading') { box.innerHTML = '<div class="skeleton" style="min-height:90px"></div>'; return; }
-        if (!list || !list.length) { box.innerHTML = '<div class="placeholder-box"><i class="bi bi-chat-square-heart"></i>' + esc(t('cm.none')) + '</div>'; return; }
-        B.paged(box, list, 5, function (c) {
-          return '<article class="cm"><span class="cm-av"><i class="bi bi-person-circle"></i></span><div class="cm-b"><div class="cm-h"><b>' + esc(c.name) + '</b>' + (c.date ? '<small><i class="bi bi-clock"></i> ' + esc(c.date) + '</small>' : '') + '</div><p><i class="bi bi-chat-quote-fill"></i>' + esc(c.comment).replace(/\n/g, '<br>') + '</p></div></article>';
-        }, 'list');
-      }
-      function load(j) { list = (j.comments || []).filter(function (c) { return c && c.comment; }); state = 'ok'; drawList(); }
-      var c0 = M.cached('comments'); if (c0) load(c0); else drawList();
-      M.apiGet('comments').then(load).catch(function () { if (state === 'loading') { state = 'err'; drawList(); } });
-      document.addEventListener('mm:lang', function () { drawList(); $$('#cmForm .err').forEach(function (m) { if (m.dataset.key) m.textContent = t(m.dataset.key); }); });
-
-      var f = $('#cmForm'); if (!f) return;
-      var NAME_RE = /^[\p{L}\p{M} ]+$/u;
-      var V = {
-        name: function () { var v = $('#cm-name').value.trim(); return !v ? 'cm.e.req' : (v.length < 3 || v.length > 30) ? 'cm.e.name' : NAME_RE.test(v) ? '' : 'cm.e.chars'; },
-        text: function () { var v = $('#cm-text').value.trim(); return !v ? 'cm.e.req' : (v.length < 3 || v.length > 500) ? 'cm.e.text' : ''; }
-      };
-      function check(k) { var w = $('.field[data-k="' + k + '"]', f), key = V[k](), m = $('.err', w); w.classList.toggle('invalid', !!key); m.dataset.key = key; m.textContent = key ? t(key) : ''; return !key; }
-      [['name', '#cm-name'], ['text', '#cm-text']].forEach(function (p) {
-        var el = $(p[1]); el.addEventListener('blur', function () { check(p[0]); });
-        el.addEventListener('input', function () { if (el.closest('.field').classList.contains('invalid')) check(p[0]); if (p[0] === 'text') $('#cm-cnt').textContent = el.value.length + '/500'; });
-      });
-      var ok = $('#cmOk'), bad = $('#cmBad'), btn = $('#cmSubmit');
-      function setBusy(b) { busy = b; btn.disabled = b; btn.innerHTML = b ? '<span class="spin"></span><span>' + esc(t('cm.sending')) + '</span>' : '<i class="bi bi-send-fill"></i><span>' + esc(t('cm.submit')) + '</span>'; }
-      f.addEventListener('submit', function (e) {
-        e.preventDefault(); if (busy) return; ok.classList.remove('show'); bad.classList.remove('show');
-        if (!Object.keys(V).map(check).every(Boolean)) { var first = $('.field.invalid input,.field.invalid textarea', f); if (first) first.focus(); return; }
-        if ($('#cm-website').value) return;                               // honeypot
-        if (!M.apiReady()) { $('span', bad).textContent = t('cm.notconf'); bad.classList.add('show'); return; }
-        setBusy(true);
-        fetch(C.API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, redirect: 'follow',
-          body: JSON.stringify({ type: 'comment', 'Name': $('#cm-name').value.trim(), 'User Comment': $('#cm-text').value.trim(), lang: L() }) })
-          .then(function (r) { return r.json(); })
-          .then(function (j) {
-            if (!j || !j.ok) throw new Error('api');
-            f.reset(); $('#cm-cnt').textContent = '0/500'; $$('.field', f).forEach(function (w) { w.classList.remove('invalid'); });
-            $('span', ok).textContent = t('cm.ok'); ok.classList.add('show'); ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          })
-          .catch(function () { $('span', bad).textContent = t('cm.fail'); bad.classList.add('show'); })
-          .then(function () { setBusy(false); });
-      });
-    })();
 
     show(current(), false);
 

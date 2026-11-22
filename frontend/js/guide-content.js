@@ -11,9 +11,6 @@
     "v.district": "ಜಿಲ್ಲೆ", "v.venue": "ಸ್ಥಳ", "v.address": "ವಿಳಾಸ", "v.contact": "ಸಂಪರ್ಕ ವಿವರಗಳು", "v.all": "ಎಲ್ಲಾ ಜಿಲ್ಲೆಗಳು", "v.search": "ಹುಡುಕಿ…", "v.sort": "ವಿಂಗಡಣೆ", "v.rows": "ಪುಟಕ್ಕೆ", "v.showing": "ತೋರಿಸಲಾಗುತ್ತಿದೆ", "v.of": "/", "v.prev": "ಹಿಂದಿನ", "v.next": "ಮುಂದಿನ",
     "v.none": "ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದುವ ಸ್ಥಳಗಳಿಲ್ಲ.", "v.empty": "ಸ್ಥಳಗಳ ಪಟ್ಟಿಯನ್ನು ಶೀಘ್ರದಲ್ಲೇ ಸೇರಿಸಲಾಗುವುದು.", "v.error": "ಸ್ಥಳಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "v.notconf": "ಬ್ಯಾಕ್‌ಎಂಡ್ ಇನ್ನೂ ಸಂಪರ್ಕಿಸಲಾಗಿಲ್ಲ.",
     "s.videos": "ವೀಡಿಯೊಗಳು", "s.photos": "ಫೋಟೋಗಳು", "s.na": "ಲಭ್ಯವಿಲ್ಲ", "s.more": "ಇನ್ನಷ್ಟು ತೋರಿಸಿ", "s.watch": "ವೀಕ್ಷಿಸಿ", "s.video": "ವೀಡಿಯೊ", "s.loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ…",
-    "cm.title": "ಓದುಗರ ಅಭಿಪ್ರಾಯಗಳು", "cm.reply": "ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಿ", "cm.name": "ಹೆಸರು", "cm.comment": "ನಿಮ್ಮ ಅಭಿಪ್ರಾಯ / ಪ್ರಶ್ನೆ", "cm.ph": "ನಿಮ್ಮ ಅಭಿಪ್ರಾಯ, ಯೋಚನೆ ಅಥವಾ ಪ್ರಶ್ನೆಯನ್ನು ಇಲ್ಲಿ ಬರೆಯಿರಿ…", "cm.submit": "ಕಳುಹಿಸಿ", "cm.sending": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…",
-    "cm.none": "ಇನ್ನೂ ಯಾವುದೇ ಅಭಿಪ್ರಾಯಗಳಿಲ್ಲ. ಮೊದಲಿಗರಾಗಿ ಬರೆಯಿರಿ!", "cm.ok": "ಧನ್ಯವಾದಗಳು! ನಿಮ್ಮ ಅಭಿಪ್ರಾಯ ಸ್ವೀಕರಿಸಲಾಗಿದೆ; ಅನುಮೋದನೆಯ ನಂತರ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.", "cm.fail": "ಕ್ಷಮಿಸಿ, ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "cm.notconf": "ಸರ್ವರ್ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ.",
-    "cm.e.req": "ಇದು ಕಡ್ಡಾಯ.", "cm.e.name": "ಹೆಸರು 3 ರಿಂದ 30 ಅಕ್ಷರಗಳಿರಬೇಕು.", "cm.e.chars": "ಅಕ್ಷರಗಳು ಮತ್ತು ಖಾಲಿ ಜಾಗ ಮಾತ್ರ ಅನುಮತಿ; ವಿಶೇಷ ಚಿಹ್ನೆಗಳು ಬೇಡ.", "cm.e.text": "ಅಭಿಪ್ರಾಯ 3 ರಿಂದ 500 ಅಕ್ಷರಗಳಿರಬೇಕು.",
     "g.faq.intro": "ಸಾಮಾನ್ಯವಾಗಿ ಕೇಳುವ ಪ್ರಶ್ನೆಗಳು"
   };
   var en = {
@@ -25,9 +22,6 @@
     "v.district": "District", "v.venue": "Venue", "v.address": "Address", "v.contact": "Contact Details", "v.all": "All districts", "v.search": "Search…", "v.sort": "Sort by", "v.rows": "Per page", "v.showing": "Showing", "v.of": "of", "v.prev": "Previous", "v.next": "Next",
     "v.none": "No venues match your search.", "v.empty": "The list of venues will be added soon.", "v.error": "Could not load venues. Please try again later.", "v.notconf": "Backend is not connected yet.",
     "s.videos": "Videos", "s.photos": "Photos", "s.na": "Not available", "s.more": "Show more", "s.watch": "Watch", "s.video": "Video", "s.loading": "Loading…",
-    "cm.title": "Reader comments", "cm.reply": "Leave a Reply", "cm.name": "Name", "cm.comment": "Your comment / question", "cm.ph": "Write your comment, thoughts or question here…", "cm.submit": "Submit", "cm.sending": "Sending…",
-    "cm.none": "No comments yet. Be the first to write one!", "cm.ok": "Thank you! Your comment has been received and will appear here after approval.", "cm.fail": "Sorry, we could not submit it. Please try again later.", "cm.notconf": "Backend is not connected yet.",
-    "cm.e.req": "This field is required.", "cm.e.name": "Name must be 3 to 30 characters.", "cm.e.chars": "Only letters and spaces are allowed; no special characters.", "cm.e.text": "Comment must be 3 to 500 characters.",
     "g.faq.intro": "Frequently asked questions"
   };
   Object.keys(kn).forEach(function (k) { window.MM_I18N.kn[k] = kn[k]; });
@@ -72,7 +66,7 @@ window.MM_GUIDE = {
       items: [
         { icon: "bi-easel", kn: { t: "ವೇದಿಕೆ ವ್ಯವಸ್ಥೆ", d: "ಸರಳ ವೇದಿಕೆಯನ್ನು ಸಿದ್ಧಪಡಿಸಿ." }, en: { t: "Stage arrangement", d: "Set up a simple stage." } },
         { icon: "bi-flower2", kn: { t: "ಸರಳ ಅಲಂಕಾರ", d: "ಮಾವಿನ ತೋರಣ, ಹೂವುಗಳಂತಹ ಸರಳ ಅಲಂಕಾರ ಸಾಕು." }, en: { t: "Simple decoration", d: "Simple decoration such as mango-leaf toranas and flowers is enough." } },
-        { icon: "bi-person-badge", kn: { t: "ಮಹನೀಯರ ಭಾವಚಿತ್ರಗಳು", d: "ಕುವೆಂಪು, ಬಸವಣ್ಣ, ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ, ಅಂಬೇಡ್ಕರ್, ಬುದ್ಧ ಮೊದಲಾದ ಮಹನೀಯರ ಭಾವಚಿತ್ರಗಳನ್ನು ವೇದಿಕೆಯಲ್ಲಿ ಇಡಿ." }, en: { t: "Portraits of great personalities", d: "Keep photos of great personalities — Kuvempu, Basavanna, Poornachandra Tejaswi, Ambedkar, Buddha and others — on the stage." } },
+        { icon: "bi-person-badge", kn: { t: "ಮಹನೀಯರ ಭಾವಚಿತ್ರಗಳು", d: "ಕುವೆಂಪು, ಬಸವಣ್ಣ, ಕೆ.ಪಿ.ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ, ಅಂಬೇಡ್ಕರ್, ಬುದ್ಧ ಮೊದಲಾದ ಮಹನೀಯರ ಭಾವಚಿತ್ರಗಳನ್ನು ವೇದಿಕೆಯಲ್ಲಿ ಇಡಿ." }, en: { t: "Portraits of great personalities", d: "Keep photos of great personalities — Kuvempu, Basavanna, K.P.Poornachandra Tejaswi, Ambedkar, Buddha and others — on the stage." } },
         { icon: "bi-book", kn: { t: "ವಿವಾಹ ಸಂಹಿತೆ ವಾಚನ", d: "ಆಹ್ವಾನಿತ ಅತಿಥಿ (ಅಥವಾ ಮನೆಯ ಹಿರಿಯರು) ವಿವಾಹ ಸಂಹಿತೆಯನ್ನು ಓದಿ ಅದರ ಅರ್ಥವನ್ನು ವಿವರಿಸುತ್ತಾರೆ." }, en: { t: "Reading the Marriage Code", d: "The invited guest (or an elder of the family) reads the Marriage Code and explains its meaning." }, link: { tab: "code", kn: "ವಿವಾಹ ಸಂಹಿತೆ ಓದಿ", en: "Read the Marriage Code" } },
         { icon: "bi-hand-thumbs-up", kn: { t: "ಪ್ರತಿಜ್ಞೆ ಸ್ವೀಕಾರ", d: "ವಧು-ವರರು ಪ್ರತಿಜ್ಞೆ ಸ್ವೀಕರಿಸುತ್ತಾರೆ." }, en: { t: "Taking the oath", d: "The bride and groom take the oath." } },
         { icon: "bi-flower1", kn: { t: "ಹಾರ ಬದಲಾವಣೆ", d: "ವಧು-ವರರು ಪರಸ್ಪರ ಹಾರ ಬದಲಾಯಿಸಿಕೊಳ್ಳುತ್ತಾರೆ." }, en: { t: "Exchange of garlands", d: "The couple exchange garlands." } },
@@ -227,7 +221,7 @@ window.MM_FAQ = [
   { q: { kn: "ಊಟದ ವ್ಯವಸ್ಥೆ ಹೇಗಿರಬೇಕು?", en: "How should the food be arranged?" },
     a: { kn: "ಬಂದವರಿಗೆಲ್ಲ ಒಳ್ಳೆಯ, ಸರಳ ಊಟ ನೀಡಿ. ಮೆನು ನಿಮ್ಮ ಆಯ್ಕೆ; ಆಶಯ ಸರಳತೆ. ಮೊದಲ ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಮದುವೆಯಲ್ಲಿ ಮಾಂಸಾಹಾರ ಊಟ ನೀಡಲಾಗಿತ್ತು.", en: "Serve nice, simple food to everyone who came. The menu is your choice; the ideal is simplicity. A non-vegetarian meal was served at the first Mantra Mangalya wedding." } },
   { q: { kn: "ವೇದಿಕೆಯಲ್ಲಿ ಯಾವ ಭಾವಚಿತ್ರಗಳನ್ನು ಇಡಬಹುದು?", en: "Which portraits can be kept on the stage?" },
-    a: { kn: "ಕುವೆಂಪು, ಬಸವಣ್ಣ, ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ, ಅಂಬೇಡ್ಕರ್, ಬುದ್ಧ ಮೊದಲಾದ ಮಹನೀಯರ ಭಾವಚಿತ್ರಗಳನ್ನು ಇಡಬಹುದು. HD ಚಿತ್ರಗಳು ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪುಟದಲ್ಲಿವೆ.", en: "Portraits of great personalities such as Kuvempu, Basavanna, Poornachandra Tejaswi, Ambedkar and Buddha. HD photos are on the Downloads page." },
+    a: { kn: "ಕುವೆಂಪು, ಬಸವಣ್ಣ, ಕೆ.ಪಿ.ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ, ಅಂಬೇಡ್ಕರ್, ಬುದ್ಧ ಮೊದಲಾದ ಮಹನೀಯರ ಭಾವಚಿತ್ರಗಳನ್ನು ಇಡಬಹುದು. HD ಚಿತ್ರಗಳು ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪುಟದಲ್ಲಿವೆ.", en: "Portraits of great personalities such as Kuvempu, Basavanna, K.P.Poornachandra Tejaswi, Ambedkar and Buddha. HD photos are on the Downloads page." },
     links: [{ to: "downloads/#photos", kn: "ವ್ಯಕ್ತಿ ಚಿತ್ರಗಳು", en: "Person photos" }] },
   { q: { kn: "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಮದುವೆಯ ವೀಡಿಯೊ, ಫೋಟೋಗಳನ್ನು ಎಲ್ಲಿ ನೋಡಬಹುದು?", en: "Where can I see videos and photos of Mantra Mangalya weddings?" },
     a: { kn: "“ಫೋಟೋ ಗ್ಯಾಲರಿ” ಟ್ಯಾಬ್‌ನಲ್ಲಿ ವೀಡಿಯೊಗಳು ಮತ್ತು ಮದುವೆಯ ಫೋಟೋಗಳಿವೆ.", en: "The “Photo Gallery” tab has videos and wedding photos." },

@@ -42,7 +42,7 @@
 
   function start() {
     var M = window.MM, B = window.MM_BROWSE, C = window.MM_CONFIG;
-    if (!M || !B || !M.$('#coupleGrid')) return;
+    if (!M || !B) return;
     var t = M.t, esc = M.esc, $ = M.$, $$ = M.$$;
     function L() { return M.lang(); }
     function pick(o) { return B.pick(o); }
@@ -71,11 +71,13 @@
       }, 'cards');
     }
 
-    Promise.all([B.listDir(COUPLES), getJson('data/community-says.json')]).then(function (r) {
-      couples = r[0]; says = (r[1] && r[1].items || []).filter(function (x) { return x && x.message; });
-      drawCouples(); drawSays();
-    });
-    document.addEventListener('mm:lang', function () { drawCouples(); drawSays(); });
+    if ($('#coupleGrid')) {                                   // gallery + 'Community says' exist on the Community page only
+      Promise.all([B.listDir(COUPLES), getJson('data/community-says.json')]).then(function (r) {
+        couples = r[0]; says = (r[1] && r[1].items || []).filter(function (x) { return x && x.message; });
+        drawCouples(); drawSays();
+      });
+      document.addEventListener('mm:lang', function () { drawCouples(); drawSays(); });
+    }
 
     /* ---------- Join modal ---------- */
     var districts = [], modal = null, opener = null;
@@ -206,7 +208,7 @@
       modal.hidden = false; document.body.style.overflow = 'hidden'; $('.modal-box', modal).scrollTop = 0; $('#j-name', modal).focus();
     }
     function close() { if (!modal || modal.hidden) return; modal.hidden = true; document.body.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
-    $('#joinBtn').addEventListener('click', open);
+    var jb = $('#joinBtn'); if (jb) jb.addEventListener('click', open);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     document.addEventListener('mm:lang', function () {
       if (!modal) return;
