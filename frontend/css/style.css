@@ -576,3 +576,58 @@ main>.block>.wrap>.acc-tools,.g-main>.acc-tools{margin-bottom:12px}
 .ft-mimg{display:block;width:100%;max-height:60vh;object-fit:contain;background:var(--cream-2);border-radius:14px;margin-bottom:14px}
 .ft-mt{line-height:1.8;color:var(--ink,#2b1d16);margin-bottom:16px}
 .ft-card.no-img{align-self:start}
+
+/* Batch 7 */
+.pers-wrap{position:relative}
+.pers-nav{position:absolute;top:42%;transform:translateY(-50%);z-index:3;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--maroon-d);border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.25);display:grid;place-items:center;font-size:.9rem;cursor:pointer}
+.pers-nav[hidden]{display:none}
+.pers-prev{left:-4px}.pers-next{right:-4px}
+.pers-nav:hover{background:var(--cream-2)}
+.about-h{cursor:pointer;user-select:none}
+.about-h:focus-visible{outline:3px solid var(--saffron);outline-offset:2px;border-radius:10px}
+.about-h .about-t{flex:1}
+.about-sec.shut>.about-body{display:none}
+.about-sec.shut>.about-h{margin-bottom:0}
+.about-h .chev{margin-left:auto;flex:none}
+.about-sec.shut>.about-h .chev{transform:rotate(-90deg)}
+/* smaller expand/collapse controls */
+.chev{font-size:.85rem}
+.c-sec.plain>.c-head .chev{font-size:.85rem;top:12px}
+.phase-head .chev{font-size:.85rem}
+.acc-tools .btn{padding:6px 12px;font-size:.8rem;gap:6px}
+.acc-tools .btn i{font-size:.85rem}
+/* smaller quote cards */
+.qcard{padding:11px 14px 9px;border-radius:14px;border-left-width:4px}
+.qcard-i{font-size:1.5rem}
+.qcard blockquote{font-size:.95rem;line-height:1.65;margin:0 0 6px}
+.qcard figcaption{font-size:.82rem}
+.quotes{gap:10px}
+.quotes.stack{gap:10px;max-width:720px}
+@media(min-width:800px){.quotes{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
+/* modals scroll inside the box */
+.modal{overscroll-behavior:contain}
+.modal-box{max-height:calc(100vh - 28px);max-height:calc(100dvh - 28px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.modal-x{position:sticky;top:0;float:right;margin:-8px -6px 0 8px;z-index:3}
+.ft-mimg{max-height:45vh}
+
+/* Batch 8 */
+.f-row{display:grid;grid-template-columns:1fr;gap:0 12px}
+@media(min-width:360px){.f-row{grid-template-columns:1fr 1fr}}
+#queryForm.form-card{padding:16px 16px 14px}
+#queryForm .field{margin-bottom:10px}
+#queryForm textarea{min-height:84px;height:84px}
+#queryForm .consent{margin:6px 0 10px;padding:8px 10px}
+#queryForm .consent p{font-size:.82rem;line-height:1.5}
+#queryForm .btn{padding:10px 14px}
+.social-grid{gap:10px}
+.couple-wrap{margin-top:4px}
+.couple-pers .pers-card{cursor:zoom-in}
+/* smaller About quotes + smaller toggle arrows */
+.about-sec .qcard{padding:8px 12px 7px;border-radius:12px}
+.about-sec .qcard-i{font-size:1.2rem}
+.about-sec .qcard blockquote{font-size:.9rem;line-height:1.55;margin-bottom:4px}
+.about-sec .qcard figcaption{font-size:.78rem}
+.about-sec .quotes.stack{gap:8px;max-width:680px}
+.chev,.c-sec.plain>.c-head .chev,.phase-head .chev{font-size:.75rem}
+.acc-tools .btn{padding:5px 10px;font-size:.76rem}
+.acc-tools .btn i{font-size:.8rem}

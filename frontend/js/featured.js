@@ -22,11 +22,35 @@
     return { n: t('ft.video'), i: 'bi-play-circle-fill', c: 'ot' };
   }
   var ITEMS = {};
-  function imgUrl(it, dir) { return it.image ? M.ROOT + dir + '/' + encodeURIComponent(it.image) : ''; }
+  /* image: file name in the folder (any case / extension), a path under the site, or a full https link */
+  var ALT_DIRS = ['images/mm-main-stream-photo', 'images/mm-main-stream-photos', 'images/mm-mainstream-photo', 'images/mm-main-streams-photo', 'images/celebrities-photo', 'images/celebraties-photo'];
+  function imgUrl(it, dir) {
+    var im = String(it.image || '').trim(); if (!im) return '';
+    if (/^https?:\/\//i.test(im)) return im;
+    if (im.indexOf('/') > -1) return M.ROOT + im.replace(/^\/+/, '').split('/').map(encodeURIComponent).join('/');
+    var list = window.MM_MANIFEST && window.MM_MANIFEST.dirs && window.MM_MANIFEST.dirs[dir], name = im;
+    if (Array.isArray(list) && list.length) {
+      var low = im.toLowerCase(), base = low.replace(/\.[^.]+$/, ''), hit = null;
+      list.forEach(function (f) { if (!hit && f.file.toLowerCase() === low) hit = f.file; });
+      list.forEach(function (f) { if (!hit && f.file.toLowerCase().replace(/\.[^.]+$/, '') === base) hit = f.file; });
+      if (hit) name = hit;
+    }
+    return M.ROOT + dir + '/' + encodeURIComponent(name);
+  }
+  /* if a photo does not load from the configured folder, try the other likely folder names before hiding it */
+  document.addEventListener('error', function (e) {
+    var im = e.target; if (!im || im.tagName !== 'IMG' || !im.hasAttribute('data-ftimg')) return;
+    var n = +(im.getAttribute('data-try') || 0), f = im.getAttribute('data-file'), cur = im.getAttribute('src');
+    var c = ALT_DIRS.map(function (d) { return M.ROOT + d + '/' + f; }).filter(function (u) { return u !== cur; });
+    if (n < c.length && f) { im.setAttribute('data-try', n + 1); im.src = c[n]; return; }
+    if (window.console) console.warn('[Mantra Mangalya] photo not found: ' + f + ' (looked in ' + ALT_DIRS.join(', ') + ')');
+    var host = im.closest('.ft-img'); if (host) host.remove(); else im.remove();
+  }, true);
+  function imgAttr(it) { return 'data-ftimg="1" data-file="' + esc(encodeURIComponent(String(it.image || '').split('/').pop())) + '"'; }
   function card(it, dir, key, n) {
     var img = imgUrl(it, dir), url = safeUrl(it.video), p = url ? platform(url) : null, text = B.pick(it.text);
     return '<article class="card ft-card' + (img ? '' : ' no-img') + '">' +
-      (img ? '<button type="button" class="ft-img" data-ft="' + key + ':' + n + '" aria-label="' + esc(t('ft.more')) + '"><img src="' + esc(img) + '" alt="' + esc(B.pick(it.title)) + '" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></button>' : '') +
+      (img ? '<button type="button" class="ft-img" data-ft="' + key + ':' + n + '" aria-label="' + esc(t('ft.more')) + '"><img src="' + esc(img) + '" ' + imgAttr(it) + ' alt="' + esc(B.pick(it.title)) + '" loading="lazy" decoding="async"></button>' : '') +
       '<div class="ft-b"><h3><strong>' + esc(B.pick(it.title)) + '</strong></h3>' +
       (text ? '<p class="ft-t">' + esc(text).replace(/\n/g, ' ') + '</p>' : '') +
       '<div class="ft-act"><button type="button" class="btn btn-primary" data-ft="' + key + ':' + n + '">' + esc(t('ft.more')) + ' <i class="bi bi-arrow-right"></i></button>' +
@@ -46,7 +70,7 @@
     opener = from;
     var img = imgUrl(it, src.dir), url = safeUrl(it.video), p = url ? platform(url) : null, text = B.pick(it.text);
     modal.innerHTML = '<div class="modal-box ft-modal"><button type="button" class="modal-x" aria-label="' + esc(t('ft.close')) + '"><i class="bi bi-x-lg"></i></button>' +
-      (img ? '<img class="ft-mimg" src="' + esc(img) + '" alt="' + esc(B.pick(it.title)) + '" onerror="this.remove()">' : '') +
+      (img ? '<img class="ft-mimg" src="' + esc(img) + '" ' + imgAttr(it) + ' alt="' + esc(B.pick(it.title)) + '">' : '') +
       '<h2><strong>' + esc(B.pick(it.title)) + '</strong></h2>' + (text ? '<p class="ft-mt">' + esc(text).replace(/\n/g, '<br>') + '</p>' : '') +
       (p ? '<a class="btn btn-primary" href="' + esc(url) + '" target="_blank" rel="noopener"><i class="bi ' + p.i + '"></i><span>' + esc(t('ft.watch')) + '</span> <i class="bi bi-box-arrow-up-right"></i></a>' : '') + '</div>';
     modal.hidden = false; document.body.style.overflow = 'hidden'; $('.modal-x', modal).focus();
@@ -62,7 +86,11 @@
     }
     fetch(M.ROOT + file).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (j) {
       state.dir = (j.imageDir || fallbackDir).replace(/^\/+|\/+$/g, '');
-      state.items = (j.items || []).filter(function (x) { return x && x.title; });
+      var list = Array.isArray(j) ? j : (j.items || j.entries || j.data || []);
+      state.items = list.map(function (x) {            // accept a few alternative field names
+        if (!x) return null;
+        return { title: x.title || x.name || x.heading, text: x.text || x.description || x.writeup || x.details, image: x.image || x.photo || x.img || x.imageFile || x.file, video: x.video || x.videoLink || x.video_url || x.link || x.url };
+      }).filter(function (x) { return x && x.title; });
     }).catch(function () { state.items = []; }).then(draw);
     draw();
     document.addEventListener('mm:lang', draw);

@@ -50,14 +50,23 @@
 
     /* ---------- couples photos: every image in images/mm-community-couples (any name, any format) ---------- */
     var COUPLES = { dir: 'images/mm-community-couples', kind: 'images', caption: false };
-    var couples = null;
+    var couples = null, order = null;
     function drawCouples() {
       var g = $('#coupleGrid'); if (couples === null) return;
       if (!couples.length) { g.innerHTML = '<div class="placeholder-box"><i class="bi bi-images"></i>' + esc(t('com.couples.none')) + '</div>'; return; }
-      g.innerHTML = '<div class="couple-grid">' + couples.map(function (it) {
-        var src = M.ROOT + COUPLES.dir + '/' + encodeURIComponent(it.file);
-        return '<div class="couple" data-full="' + esc(src) + '" data-name="' + esc(it.file) + '" data-dl="' + esc(src) + '" data-local="1"><img src="' + esc(src) + '" alt="" loading="lazy" decoding="async">' + M.actions(src, it.file, true) + '</div>';
-      }).join('') + '</div>';
+      if (!order || order.length !== couples.length) order = couples.slice().sort(function () { return Math.random() - .5; });   // new random order on every visit
+      g.innerHTML = '<div class="pers-wrap couple-wrap"><button type="button" class="pers-nav pers-prev" aria-label="' + esc(t('v.prev')) + '" hidden><i class="bi bi-chevron-left"></i></button>' +
+        '<div class="pers couple-pers" role="list">' + order.map(function (it) {
+          var src = M.ROOT + COUPLES.dir + '/' + encodeURIComponent(it.file);
+          return '<figure class="pers-card" role="listitem" data-full="' + esc(src) + '" data-name="' + esc(it.file) + '" data-dl="' + esc(src) + '" data-local="1"><div class="pers-img"><img src="' + esc(src) + '" alt="" loading="lazy" decoding="async"></div></figure>';
+        }).join('') + '</div><button type="button" class="pers-nav pers-next" aria-label="' + esc(t('v.next')) + '" hidden><i class="bi bi-chevron-right"></i></button></div>';
+      var box = $('.couple-pers', g), pv = $('.pers-prev', g), nx = $('.pers-next', g);
+      function nav() { var more = box.scrollWidth > box.clientWidth + 4; pv.hidden = !more || box.scrollLeft < 4; nx.hidden = !more || box.scrollLeft + box.clientWidth >= box.scrollWidth - 4; }
+      function slide(d) { box.scrollBy({ left: d * Math.max(120, box.clientWidth * 0.75), behavior: 'smooth' }); }
+      pv.addEventListener('click', function () { slide(-1); }); nx.addEventListener('click', function () { slide(1); });
+      box.addEventListener('scroll', nav, { passive: true }); window.addEventListener('resize', nav);
+      $$('img', box).forEach(function (im) { im.addEventListener('load', nav); });
+      setTimeout(nav, 60); setTimeout(nav, 500);
     }
 
     /* ---------- Community says ---------- */
@@ -209,6 +218,7 @@
     }
     function close() { if (!modal || modal.hidden) return; modal.hidden = true; document.body.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
     var jb = $('#joinBtn'); if (jb) jb.addEventListener('click', open);
+    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#joinTop')) open(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     document.addEventListener('mm:lang', function () {
       if (!modal) return;

@@ -15,7 +15,7 @@ kn: {
  "home.explore.title":"ಇನ್ನಷ್ಟು ಅನ್ವೇಷಿಸಿ","home.explore.sub":"ಮಾರ್ಗದರ್ಶನ, ಡೌನ್‌ಲೋಡ್‌ಗಳು ಮತ್ತು ಸಮುದಾಯ",
  "card.guidance":"ಮದುವೆಯ ಹಂತಗಳು, ವಿವಾಹ ಸಂಹಿತೆ, ಸ್ಥಳಗಳು, ಮಾದರಿಗಳು ಮತ್ತು ಪ್ರಶ್ನೋತ್ತರ.","card.downloads":"ಆಮಂತ್ರಣ ಪತ್ರಿಕೆ ಮಾದರಿಗಳು ಮತ್ತು ಇತರೆ ಕಡತಗಳು.","card.community":"ಮಂತ್ರ ಮಾಂಗಲ್ಯ ದಂಪತಿಗಳ ಚಿತ್ರಗಳು ಮತ್ತು ಅನುಭವಗಳು.","card.open":"ತೆರೆಯಿರಿ",
  "cta.title":"ನಿಮ್ಮ ಮದುವೆಯನ್ನೂ ಮಂತ್ರ ಮಾಂಗಲ್ಯದಲ್ಲಿ ಮಾಡಬೇಕೆ?","cta.text":"ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳನ್ನು ನಮಗೆ ಕಳುಹಿಸಿ, ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ.",
- "ph.about":"ಕುವೆಂಪು ಅವರ ವಿಶ್ವಮಾನವ ವಿವಾಹ ಪದ್ಧತಿಯ ಸಂಪೂರ್ಣ ಪರಿಚಯ","ph.guidance":"ಸರಳ ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಮದುವೆಗೆ ಸಂಪೂರ್ಣ ಮಾರ್ಗದರ್ಶನ","ph.downloads":"ಆಮಂತ್ರಣ ಪತ್ರಿಕೆಗಳು ಮತ್ತು ಇತರೆ ಕಡತಗಳು","ph.community":"ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಬಳಗ","ph.contact":"ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ",
+ "ph.about":"ಕುವೆಂಪು ಅವರ ವಿಶ್ವಮಾನವ ವಿವಾಹ ಪದ್ಧತಿಯ ಸಂಪೂರ್ಣ ಪರಿಚಯ","ph.guidance":"ಸರಳ ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಮದುವೆಗೆ ಸಂಪೂರ್ಣ ಮಾರ್ಗದರ್ಶನ","ph.downloads":"ಆಮಂತ್ರಣ ಪತ್ರಿಕೆಗಳು ಮತ್ತು ಇತರೆ ಕಡತಗಳು","ph.community":"ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಬಳಗ - ಮಂತ್ರ ಮಾಂಗಲ್ಯ ರೀತಿಯಲ್ಲಿ ವಿವಾಹವಾದ ದಂಪತಿಗಳ ತಾಣ.","ph.contact":"ಕೆಳಗಿನ ಯಾವುದಾದರೂ ಮಾಧ್ಯಮದ ಮೂಲಕ ಸಂಪರ್ಕಿಸಿ",
  "soon":"ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ","soon.detail":"ಈ ವಿವರಗಳನ್ನು ಶೀಘ್ರದಲ್ಲೇ ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.",
  
  
@@ -49,7 +49,7 @@ en: {
  "home.explore.title":"Explore more","home.explore.sub":"Guidance, downloads and community",
  "card.guidance":"Wedding steps, Marriage Code, venues, samples and FAQ.","card.downloads":"Invitation card samples and other files.","card.community":"Photos and experiences of Mantra Mangalya couples.","card.open":"Open",
  "cta.title":"Planning your own Mantra Mangalya wedding?","cta.text":"Send us your questions and we will help you.",
- "ph.about":"A complete introduction to Kuvempu's universal wedding tradition","ph.guidance":"Complete guidance for a simple Mantra Mangalya wedding","ph.downloads":"Invitation cards and other files","ph.community":"The Mantra Mangalya family","ph.contact":"Talk to us",
+ "ph.about":"A complete introduction to Kuvempu's universal wedding tradition","ph.guidance":"Complete guidance for a simple Mantra Mangalya wedding","ph.downloads":"Invitation cards and other files","ph.community":"The Mantra Mangalya family - space for couples who married the Mantra Mangalya way.","ph.contact":"Contact us through any of the channels below",
  "soon":"Coming soon","soon.detail":"These details will be added here soon.",
  
  

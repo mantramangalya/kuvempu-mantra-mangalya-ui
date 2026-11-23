@@ -95,16 +95,25 @@
     var box = document.createElement('div');
     box.className = 'pers'; box.id = 'personalities'; box.setAttribute('role', 'list');
     var band = document.createElement('section'); band.className = 'pers-band';
-    band.innerHTML = '<div class="wrap"></div>'; $('.wrap', band).appendChild(box);
+    band.innerHTML = '<div class="wrap"><div class="pers-wrap"><button type="button" class="pers-nav pers-prev" aria-label="Previous" hidden><i class="bi bi-chevron-left"></i></button><button type="button" class="pers-nav pers-next" aria-label="Next" hidden><i class="bi bi-chevron-right"></i></button></div></div>'; $('.pers-wrap', band).insertBefore(box, $('.pers-next', band));
     hero.insertAdjacentElement('afterend', band);
+    var pv = $('.pers-prev', band), nx = $('.pers-next', band);
+    function navState() {
+      var more = box.scrollWidth > box.clientWidth + 4;
+      pv.hidden = !more || box.scrollLeft < 4; nx.hidden = !more || box.scrollLeft + box.clientWidth >= box.scrollWidth - 4;
+    }
+    function slide(d) { box.scrollBy({ left: d * Math.max(120, box.clientWidth * 0.75), behavior: 'smooth' }); }
+    pv.addEventListener('click', function () { slide(-1); }); nx.addEventListener('click', function () { slide(1); });
+    box.addEventListener('scroll', navState, { passive: true }); window.addEventListener('resize', navState); window.addEventListener('load', navState);
     function draw() {
       box.innerHTML = list.map(function (p, i) {
         var dir = imgDir(C.HOME_IMAGES_DIR || 'images/home-page-images'), file = imgFile(p.img, dir), src = ROOT + dir + '/' + file, name = p[lang] || p.kn || p.en || '';
         return '<figure class="pers-card" role="listitem" style="animation-delay:' + (i * 80) + 'ms" data-full="' + esc(src) + '" data-name="' + esc(file) + '" data-dl="' + esc(src) + '" data-local="1" title="' + esc(name) + '">' +
           '<div class="pers-img"><img src="' + esc(src) + '" data-base="' + esc(String(p.img).replace(EXT_RE, '')) + '" data-dir="' + esc(dir) + '" alt="' + esc(name) + '" loading="lazy" decoding="async" onerror="MM.imgErr(this)"></div><figcaption>' + esc(name) + '</figcaption></figure>';
       }).join('');
+      setTimeout(navState, 60);
     }
-    draw(); document.addEventListener('mm:lang', draw);
+    draw(); document.addEventListener('mm:lang', draw); setTimeout(navState, 400);
   }
 
   function applyI18n(root) {
@@ -220,7 +229,7 @@
     v.addEventListener('click', function (e) { if (e.target === v || e.target.classList.contains('viewer-stage')) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
-  var QUOTES = null, QPAGE = 1;
+  var QUOTES = null, QPAGE = 1, SHUT = {};
   function pickL(o) { return o == null ? '' : typeof o === 'string' ? o : (o[lang] || o.kn || o.en || ''); }
   function paras(a) { return '<div class="prose">' + a.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>'; }
   function body(s) {
@@ -255,7 +264,8 @@
       if (accordion) {
         return '<article class="acc reveal" id="acc-' + s.id + '"><button class="acc-head" aria-expanded="false" aria-controls="p-' + s.id + '"><span class="acc-ic"><i class="bi ' + s.icon + '"></i></span><span class="acc-title">' + esc(d.title) + '</span><i class="bi bi-chevron-down chev"></i></button><div class="acc-panel" id="p-' + s.id + '" role="region"><div class="acc-inner"><div class="acc-body">' + body(s) + '</div></div></div></article>';
       }
-      return '<section class="about-sec reveal" id="' + s.id + '"><h2><span class="acc-ic"><i class="bi ' + s.icon + '"></i></span>' + esc(d.title) + '</h2>' + body(s) + '</section>';
+      var shut = !!SHUT[s.id];
+      return '<section class="about-sec reveal' + (shut ? ' shut' : '') + '" id="' + s.id + '"><h2 class="about-h" role="button" tabindex="0" aria-expanded="' + !shut + '"><span class="acc-ic"><i class="bi ' + s.icon + '"></i></span><span class="about-t">' + esc(d.title) + '</span><i class="bi bi-chevron-down chev"></i></h2><div class="about-body">' + body(s) + '</div></section>';
     }).join('');
     if (accordion) $$('.acc', box).forEach(function (a) { $('.acc-head', a).addEventListener('click', function () { toggle(a); }); });
     observe(box);
@@ -272,6 +282,23 @@
       renderAbout(box, accordion);
       openIds.forEach(function (id) { var a = document.getElementById(id); if (a) toggle(a, true); }); openIds = [];
       $$('.acc', box).forEach(function (a) { a.classList.add('in'); });
+    }
+    var aboutBar = null;
+    function aboutRefresh() {
+      if (!aboutBar) return;
+      var secs = $$('.about-sec', box), expand = secs.some(function (x) { return x.classList.contains('shut'); }), b = $('button', aboutBar);
+      b.dataset.mode = expand ? 'expand' : 'collapse'; $('span', b).textContent = t(expand ? 'btn.expand' : 'btn.collapse'); $('i', b).className = 'bi ' + (expand ? 'bi-arrows-expand' : 'bi-arrows-collapse');
+    }
+    function aboutSet(sec, open) { sec.classList.toggle('shut', !open); SHUT[sec.id] = !open; $('.about-h', sec).setAttribute('aria-expanded', open); }
+    if (!accordion && PAGE === 'about') {
+      aboutBar = document.createElement('div'); aboutBar.className = 'acc-tools'; aboutBar.innerHTML = '<button type="button" class="btn btn-light"><i class="bi"></i><span></span></button>';
+      box.insertAdjacentElement('beforebegin', aboutBar);
+      $('button', aboutBar).addEventListener('click', function () { var o = this.dataset.mode === 'expand'; $$('.about-sec', box).forEach(function (x) { aboutSet(x, o); }); aboutRefresh(); });
+      document.addEventListener('mm:lang', function () { setTimeout(aboutRefresh, 0); });
+      box.addEventListener('click', function (e) { var h = e.target.closest('.about-h'); if (h) { var sec = h.parentNode; aboutSet(sec, sec.classList.contains('shut')); aboutRefresh(); } });
+      box.addEventListener('keydown', function (e) { var h = e.target.closest && e.target.closest('.about-h'); if (h && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); h.click(); } });
+      window.addEventListener('hashchange', function () { var a = location.hash && document.getElementById(location.hash.slice(1)); if (a && a.classList.contains('about-sec') && a.classList.contains('shut')) { aboutSet(a, true); aboutRefresh(); } });
+      var _draw = draw; draw = function () { _draw(); aboutRefresh(); };
     }
     box.addEventListener('click', function (e) {
       var b = e.target.closest('[data-qp]'); if (!b || b.disabled) return;
@@ -455,9 +482,13 @@
     });
   }
   function initPageToggles() {
-    if (PAGE !== 'community' && PAGE !== 'contact') return;
+    if (PAGE !== 'community') return;
     makeSectionsCollapsible();
-    var first = $('main .block > .wrap.c-sec'); if (first) toggleAll(first, 'afterbegin', function () { return $('main'); });
+    var first = $('main .block > .wrap');
+    if (first) {
+      var bar = toggleAll(first, 'afterbegin', function () { return $('main'); });
+      if (PAGE === 'community' && bar) bar.insertAdjacentHTML('afterbegin', '<button type="button" class="btn btn-primary" id="joinTop"><i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span></button>');
+    }
   }
 
   window.MM = {
