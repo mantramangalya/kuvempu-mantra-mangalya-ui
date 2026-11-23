@@ -7,5 +7,24 @@
   "image": "movie-1.jpg",
   "video": "https://www.youtube.com/watch?v=XXXXXXXXXXX"
  },
- "items": []
+ "items": [
+  {
+  "title": { "kn": "ಲಾಲ್ಬಾಗ್ ಫ್ಲೊವರ್ ಶೋ ", "en": "Lalbagh Flower Show - 2026" },
+  "text": { "kn": "ಸಣ್ಣ ವಿವರ.", "en": "A short write-up." },
+  "image": "lalbaghflowershow2026.jpg",
+  "video": ""
+ },
+{
+  "title": { "kn": "ಹೊಂದಿಸಿ ಬರೆಯಿರಿ", "en": "Hondisi Bareyiri" },
+  "text": { "kn": "ಸಣ್ಣ ವಿವರ.", "en": "A short write-up." },
+  "image": "hondisibareyiri.png",
+  "video": "https://www.youtube.com/watch?v=ina8sEP1jpc"
+ },
+ {
+  "title": { "kn": "ಧೈರ್ಯಂ ಸರ್ವತ್ರ ಸಾಧನಂ", "en": "Dhairyam Sarvatra Sadhanam" },
+  "text": { "kn": "ಸಣ್ಣ ವಿವರ.", "en": "A short write-up." },
+  "image": "dhairyamsarvatrasadhanam.png",
+  "video": ""
+ }
+ ]
 }
