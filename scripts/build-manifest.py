@@ -10,7 +10,9 @@ import json, os, re
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'frontend')
 IMG_EXT = {'.webp', '.jpg', '.jpeg', '.png', '.gif', '.avif', '.svg', '.bmp'}
 EXTRA = [{'dir': 'images/mm-marriage-photos', 'kind': 'images'},      # Guidance > Photo Gallery > Photos
-         {'dir': 'images/mm-community-couples', 'kind': 'images'}]    # Community page couples
+         {'dir': 'images/mm-community-couples', 'kind': 'images'},    # Community page couples
+         {'dir': 'images/celebrities-photo', 'kind': 'images'},       # Home > Celebrities
+         {'dir': 'images/mm-main-stream-photo', 'kind': 'images'}]    # Home > Main streams
 
 cfg = json.load(open(os.path.join(ROOT, 'data', 'downloads.config.json'), encoding='utf-8'))
 

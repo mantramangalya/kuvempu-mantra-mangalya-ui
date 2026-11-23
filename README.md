@@ -13,7 +13,7 @@ kuvempu-mantra-mangalya/
 │  ├─ downloads/mm-marriage-code-formats/   <- mm-marriage-code-format-1.pdf, -2.docx ...
 │  └─ images/           <- page images (any format) + folders below
 │     ├─ mm-logo/                 mm-logo-1.png, mm-logo-2.svg ...        (Downloads > Logo)
-│     ├─ hd-photos/               any file name, any format              (Downloads > Person Photos)
+│     ├─ person-photos/               any file name, any format              (Downloads > Person Photos)
 │     ├─ sample-mm-invitations/   sample-mm-invitation-1.jpg ...          (Downloads > Sample Invitations)
 │     └─ mm-marriage-photos/      any file name, any format              (Guidance > Photo Gallery > Photos)
 ├─ backend/             <- paste into Google Apps Script (not published)
@@ -24,7 +24,7 @@ kuvempu-mantra-mangalya/
 ## 1. Images (any format: png, jpg, jpeg, webp, avif, gif, svg)
 - `frontend/images/home-page-images/` - Home personality cards: `kuvempu`, `tejaswi`, `basavanna`, `buddha`, `ambedkar` (add more in `PERSONALITIES` in `js/config.js`, file name without extension).
 - `frontend/images/about-page-images/` - About page: `kuvempu`, `tejaswi-rajeshwari-maduve`, `tejaswi-rajeshwari-maduve-invitation`, `mantra-mangalya-book`.
-- Folder galleries (any file name unless a pattern is shown): `mm-logo/` (mm-logo-1 ...), `hd-photos/`, `sample-mm-invitations/` (sample-mm-invitation-1 ...), `mm-marriage-photos/`, `mm-community-couples/`.
+- Folder galleries (any file name unless a pattern is shown): `mm-logo/` (mm-logo-1 ...), `person-photos/`, `sample-mm-invitations/` (sample-mm-invitation-1 ...), `mm-marriage-photos/`, `mm-community-couples/`.
 - Book: put `kuvempu-mantra-mangalya-book.pdf` in `frontend/downloads/` (last section of the Downloads page).
 Missing images just show a blank frame. Push the files and the workflow regenerates `data/manifest.js` automatically.
 **Logo / favicon:** replace `frontend/favicon.svg` with your logo (or set `LOGO: "favicon.png"` in `js/config.js`).
@@ -90,10 +90,27 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - **Quotes**: edit `frontend/data/quotes.json` (`text`/`author` in `kn` and `en`) to add more. Shown on About and in the Home About accordion.
 - **Comments sheet** columns: `Created Timestamp, Name, User Comment, Status, Comment Id, Like Count`. Missing columns are added automatically; older approved comments get an id when first listed. Likes are one per browser (localStorage `mm_liked`).
 - Leave a reply is on Home, Guidance and Community. Home shows Contact and Join Community side by side.
-- After pasting `backend/Code.gs`, publish a **New version** of the deployment. `?action=ping` should report `v7-likes-callback`.
+- After pasting `backend/Code.gs`, publish a **New version** of the deployment. `?action=ping` should report `v8-mail-signature`.
 
 ## Home: Celebrities and Main-stream sections
-- `frontend/data/celebrities.json` → "Celebrities married in the Mantra Mangalya way"; photos in `frontend/images/celebraties-photo/`.
+- `frontend/data/celebrities.json` → "Celebrities married in the Mantra Mangalya way"; photos in `frontend/images/celebrities-photo/`.
 - `frontend/data/mainstream.json` → "Mantra Mangalya in main streams"; photos in `frontend/images/mm-main-stream-photo/`.
 - Each entry in `items`: `title {kn,en}` (shown bold), `text {kn,en}`, optional `image` (exact file name in that folder), optional `video` (https link). See `_example` in each file. Six cards per page with pager.
 - More quotes: add to `frontend/data/quotes.json`.
+
+## Batch 6 notes
+- Folders renamed: `images/hd-photos` -> `images/person-photos`, `images/celebraties-photo` -> `images/celebrities-photo` (use `git mv` so your photos move with the folder).
+- Home page now shows: Core Ideals (headings), short "About Mantra Mangalya Wedding", Celebrities, Main streams, two random quotes. Celebrity/main-stream entries show 3 per page with a "More" popup and a "Watch video" link.
+- About > Quotes: vertical list, 10 per page.
+- Mail signature: "Admin Team" + website `mantramangalya.in` (edit in `data/email-templates.json`; republish Code.gs as a New version).
+
+## Batch 7 notes
+- Home photos for Celebrities / Main streams: `image` may be just a file name (case and extension are matched using the generated manifest), a path under the site, or a full https link.
+- Great-personalities strip has left/right arrows when the photos overflow; About page has expand/collapse-all plus per-section toggles; Community has a "Join the Community" button next to expand/collapse-all.
+
+## Batch 8 notes
+- Contact page: no collapse toggles; banner text is "Contact us through any of the channels below"; the form uses two columns (Name/Phone, Email/Place).
+- Community page: banner reads "The Mantra Mangalya family - space for couples who married the Mantra Mangalya way."; couple photos are a swipe/arrow slider in random order on every visit (all images in `images/mm-community-couples`); "Join the Community" is also next to expand/collapse-all at the top right.
+- Home: the first banner slide has no buttons (other slides keep "Learn more").
+- Home main-stream / celebrity entries accept `image` (file name, any case/extension), `photo`, `img` as alternatives; a missing photo is reported in the browser console ("photo not found") to help locate the wrong file name or folder.
+- Kannada label for the call-back button: "ಕರೆ ಮಾಡಲು ಕೋರಿ".
