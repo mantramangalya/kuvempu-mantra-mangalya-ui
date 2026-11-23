@@ -2,7 +2,7 @@
    Sheet IDs, mail settings and folder IDs live ONLY in backend/Code.gs. */
 window.MM_CONFIG = {
   // Paste your deployed Google Apps Script Web App URL (ends with /exec)
-  API_URL: "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE",
+  API_URL: "https://script.google.com/macros/s/AKfycbxYRef7jBJbZ6Tthd9lxmDClC5f1lCRucTUwpm1_U-n9ZtkcCW6L-g_KCn85I8OSlvQ/exec",
   EMAIL: "mantramangalya1966@gmail.com",
   INSTAGRAM_HANDLE: "mantramangalya.maduve",
   INSTAGRAM_URL: "https://www.instagram.com/mantramangalya.maduve",
