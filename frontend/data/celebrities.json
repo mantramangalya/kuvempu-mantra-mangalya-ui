@@ -7,5 +7,18 @@
   "image": "couple-1.jpg",
   "video": "https://www.youtube.com/watch?v=XXXXXXXXXXX"
  },
- "items": []
+ "items": [
+  {
+  "title": { "kn": "ಕವಿರಾಜ್", "en": "Kaviraj" },
+  "text": { "kn": "ಮದುವೆಯ ಬಗ್ಗೆ ಸಣ್ಣ ವಿವರ111111", "en": "A short write-up about the wedding.111111" },
+  "image": "kaviraj-rajeshwari.webp",
+  "video": "https://youtu.be/SaPKTp2U3Ok?si=gyWxh2qlhW_ysnSi"
+},
+{
+  "title": { "kn": "ಪೂಜಾ ಗಾಂಧಿ", "en": "Pooja Gandhi" },
+  "text": { "kn": "ಮದುವೆಯ ಬಗ್ಗೆ ಸಣ್ಣ ವಿವರ333333.", "en": "A short write-up about the wedding.333333" },
+  "image": "poojagandhi-vijayghorpade",
+  "video": "https://youtu.be/mQWoSSuFCvk?si=a5XFJGXgBsfjfMma"
+}
+ ]
 }
