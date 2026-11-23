@@ -1,6 +1,6 @@
 {
  "_help": "Home page > 'Celebrities married the Mantra Mangalya way'. One object per couple inside 'items'. 'title' (couple name, shown bold) and 'text' (short write-up) are {kn,en}. 'image' = exact file name placed in the folder 'imageDir' (optional). 'video' = YouTube / Instagram / Facebook / any https link (optional). Items with no image or video simply show without them. Use \\n for a line break.",
- "imageDir": "images/celebraties-photo",
+ "imageDir": "images/celebrities-photo",
  "_example": {
   "title": { "kn": "ಪತಿ ಮತ್ತು ಪತ್ನಿಯ ಹೆಸರು", "en": "Husband & Wife name" },
   "text": { "kn": "ಮದುವೆಯ ಬಗ್ಗೆ ಸಣ್ಣ ವಿವರ.", "en": "A short write-up about the wedding." },
