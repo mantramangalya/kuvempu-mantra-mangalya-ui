@@ -1,0 +1,11 @@
+{
+ "_help": "Home page > 'Mantra Mangalya in main streams' (movies, events, media). One object per movie/event inside 'items'. 'title' (movie / event name, shown bold) and 'text' (short write-up) are {kn,en}. 'image' = exact file name placed in the folder 'imageDir' (optional). 'video' = YouTube / Instagram / Facebook / any https link (optional). Use \\n for a line break.",
+ "imageDir": "images/mm-main-stream-photo",
+ "_example": {
+  "title": { "kn": "ಚಲನಚಿತ್ರ / ಕಾರ್ಯಕ್ರಮದ ಹೆಸರು", "en": "Movie / event name" },
+  "text": { "kn": "ಸಣ್ಣ ವಿವರ.", "en": "A short write-up." },
+  "image": "movie-1.jpg",
+  "video": "https://www.youtube.com/watch?v=XXXXXXXXXXX"
+ },
+ "items": []
+}

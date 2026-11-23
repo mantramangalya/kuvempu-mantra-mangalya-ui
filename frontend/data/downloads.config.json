@@ -1,32 +1,84 @@
 {
-  "_help": "Each section of the Downloads page is a folder. Drop files in the folder and push - they appear automatically (the workflow runs scripts/build-manifest.py). 'prefix' (optional) limits to files whose names start with it; 'kind' is 'images' (any image format) or 'files'. To add a section, add one object here and create the folder.",
+  "_help": "Each section of the Downloads page is a folder. Drop files in the folder and push - they appear automatically (the workflow runs scripts/build-manifest.py). 'file' (optional) picks one exact file; 'prefix' (optional) limits to files whose names start with it; 'kind' is 'images' (any image format) or 'files'. To add a section, add one object here and create the folder.",
   "sections": [
     {
-      "id": "logo", "dir": "images/mm-logo", "prefix": "mm-logo-", "kind": "images",
+      "id": "logo",
+      "dir": "images/mm-logo",
+      "prefix": "mm-logo-",
+      "kind": "images",
       "icon": "bi-patch-check-fill",
-      "title": { "kn": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಲೋಗೋ", "en": "Mantra Mangalya Logo" },
-      "itemLabel": { "kn": "ಲೋಗೋ", "en": "Logo" }
-    },
-    {
-      "id": "photos", "dir": "images/hd-photos", "kind": "images", "icon": "bi-person-bounding-box",
-      "title": { "kn": "ವ್ಯಕ್ತಿ ಚಿತ್ರಗಳು (HD)", "en": "Person Photos (HD)" },
-      "note": {
-        "kn": "ಕುವೆಂಪು, ತೇಜಸ್ವಿ, ಬಸವಣ್ಣ, ಅಂಬೇಡ್ಕರ್ ಮೊದಲಾದವರ HD ಚಿತ್ರಗಳು. ಫೋಟೋ ಫ್ರೇಮ್, ಬ್ಯಾನರ್, ಆಮಂತ್ರಣ ಪತ್ರಿಕೆಗಳಿಗೆ ಇನ್ನೂ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಚಿತ್ರಗಳು ಬೇಕಿದ್ದರೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.",
-        "en": "HD photos of Kuvempu, Tejaswi, Basavanna, Ambedkar and other great personalities. Need higher-quality photos for photo frames, banners or invitations? Please reach out to us."
+      "title": {
+        "kn": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಲೋಗೋ",
+        "en": "Mantra Mangalya Logo"
       },
-      "noteLink": { "to": "contact/", "kn": "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ", "en": "Contact us" }
+      "itemLabel": {
+        "kn": "ಲೋಗೋ",
+        "en": "Logo"
+      }
     },
     {
-      "id": "invitations", "dir": "images/sample-mm-invitations", "prefix": "sample-mm-invitation-", "kind": "images",
+      "id": "photos",
+      "dir": "images/hd-photos",
+      "kind": "images",
+      "icon": "bi-person-bounding-box",
+      "title": {
+        "kn": "ವ್ಯಕ್ತಿ ಚಿತ್ರಗಳು",
+        "en": "Person Photos"
+      },
+      "note": {
+        "kn": "ಫೋಟೋ ಫ್ರೇಮ್, ಬ್ಯಾನರ್, ಆಮಂತ್ರಣ ಪತ್ರಿಕೆಗಳಿಗೆ ಇನ್ನೂ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಚಿತ್ರಗಳು ಬೇಕಿದ್ದರೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ:",
+        "en": "Need higher-quality photos for photo frames, banners or invitations? Please reach out to us:"
+      },
+      "noteLink": {
+        "to": "contact/",
+        "kn": "ಸಂಪರ್ಕ ಫಾರ್ಮ್",
+        "en": "Contact Form"
+      }
+    },
+    {
+      "id": "invitations",
+      "dir": "images/sample-mm-invitations",
+      "prefix": "sample-mm-invitation-",
+      "kind": "images",
       "icon": "bi-envelope-paper-heart",
-      "title": { "kn": "ಮದುವೆ ಆಮಂತ್ರಣ ಪತ್ರಿಕೆ ಮಾದರಿಗಳು", "en": "Sample Invitations" },
-      "itemLabel": { "kn": "ಮಾದರಿ", "en": "Sample" }
+      "title": {
+        "kn": "ಮದುವೆ ಆಮಂತ್ರಣ ಪತ್ರಿಕೆ ಮಾದರಿಗಳು",
+        "en": "Sample Invitations"
+      },
+      "itemLabel": {
+        "kn": "ಮಾದರಿ",
+        "en": "Sample"
+      }
     },
     {
-      "id": "code-formats", "dir": "downloads/mm-marriage-code-formats", "prefix": "mm-marriage-code-format-", "kind": "files",
+      "id": "code-formats",
+      "dir": "downloads/mm-marriage-code-formats",
+      "prefix": "mm-marriage-code-format-",
+      "kind": "files",
       "icon": "bi-journal-richtext",
-      "title": { "kn": "ವಿವಾಹ ಸಂಹಿತೆ ಮಾದರಿಗಳು", "en": "Marriage Code Templates" },
-      "itemLabel": { "kn": "ಸಂಹಿತೆ ಮಾದರಿ", "en": "Template" }
+      "title": {
+        "kn": "ವಿವಾಹ ಸಂಹಿತೆ ಮಾದರಿಗಳು",
+        "en": "Marriage Code Templates"
+      },
+      "itemLabel": {
+        "kn": "ಸಂಹಿತೆ ಮಾದರಿ",
+        "en": "Template"
+      }
+    },
+    {
+      "id": "book",
+      "dir": "downloads",
+      "file": "kuvempu-mantra-mangalya-book.pdf",
+      "kind": "files",
+      "icon": "bi-book-half",
+      "title": {
+        "kn": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಪುಸ್ತಕ",
+        "en": "Mantra Mangalya Book"
+      },
+      "label": {
+        "kn": "ಕುವೆಂಪು ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಪುಸ್ತಕ",
+        "en": "Kuvempu Mantra Mangalya Book"
+      }
     }
   ]
 }
