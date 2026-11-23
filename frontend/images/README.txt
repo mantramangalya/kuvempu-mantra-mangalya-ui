@@ -1,1 +1,1 @@
-Sub-folders: home-page-images (Home personality cards), about-page-images (About page), mm-logo, hd-photos, sample-mm-invitations, mm-marriage-photos, mm-community-couples. Book PDF goes in frontend/downloads/kuvempu-mantra-mangalya-book.pdf.
+Sub-folders: home-page-images (Home personality cards), about-page-images (About page), mm-logo, person-photos, sample-mm-invitations, mm-marriage-photos, mm-community-couples. Book PDF goes in frontend/downloads/kuvempu-mantra-mangalya-book.pdf.
