@@ -91,3 +91,9 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - **Comments sheet** columns: `Created Timestamp, Name, User Comment, Status, Comment Id, Like Count`. Missing columns are added automatically; older approved comments get an id when first listed. Likes are one per browser (localStorage `mm_liked`).
 - Leave a reply is on Home, Guidance and Community. Home shows Contact and Join Community side by side.
 - After pasting `backend/Code.gs`, publish a **New version** of the deployment. `?action=ping` should report `v7-likes-callback`.
+
+## Home: Celebrities and Main-stream sections
+- `frontend/data/celebrities.json` → "Celebrities married in the Mantra Mangalya way"; photos in `frontend/images/celebraties-photo/`.
+- `frontend/data/mainstream.json` → "Mantra Mangalya in main streams"; photos in `frontend/images/mm-main-stream-photo/`.
+- Each entry in `items`: `title {kn,en}` (shown bold), `text {kn,en}`, optional `image` (exact file name in that folder), optional `video` (https link). See `_example` in each file. Six cards per page with pager.
+- More quotes: add to `frontend/data/quotes.json`.
