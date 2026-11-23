@@ -220,7 +220,7 @@
     v.addEventListener('click', function (e) { if (e.target === v || e.target.classList.contains('viewer-stage')) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
-  var QUOTES = null;
+  var QUOTES = null, QPAGE = 1;
   function pickL(o) { return o == null ? '' : typeof o === 'string' ? o : (o[lang] || o.kn || o.en || ''); }
   function paras(a) { return '<div class="prose">' + a.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>'; }
   function body(s) {
@@ -237,9 +237,13 @@
         return '<div class="gallery2">' + s.imgs.map(function (m, k) { return imgBlock(m[0], d.caps[k], 'wide', d.caps[k]); }).join('') + '</div>' + paras(d.paras);
       case 'quotes':
         if (QUOTES === null) return '<div class="skeleton" style="min-height:90px"></div>';
-        return '<div class="quotes">' + QUOTES.map(function (q) {
+        var QN = 10, pages = Math.max(1, Math.ceil(QUOTES.length / QN)), pg = Math.min(QPAGE, pages), from = (pg - 1) * QN, chunk = QUOTES.slice(from, from + QN);
+        return '<div class="quotes stack">' + chunk.map(function (q) {
           return '<figure class="qcard"><i class="bi bi-quote qcard-i"></i><blockquote>' + esc(pickL(q.text)).replace(/\n/g, '<br>') + '</blockquote><figcaption>— ' + esc(pickL(q.author)) + '</figcaption></figure>';
-        }).join('') + '</div>';
+        }).join('') + '</div>' + (pages < 2 ? '' : '<div class="pager pg-nav q-pager"><span class="pg-info">' + esc(t('v.showing')) + ' ' + (from + 1) + '–' + (from + chunk.length) + ' ' + esc(t('v.of')) + ' ' + QUOTES.length + '</span>' +
+          '<div class="pg-btns"><button type="button" data-qp="' + (pg - 1) + '"' + (pg === 1 ? ' disabled' : '') + ' aria-label="' + esc(t('v.prev')) + '"><i class="bi bi-chevron-left"></i></button>' +
+          Array.apply(null, Array(pages)).map(function (_, i) { var n = i + 1; return '<button type="button" data-qp="' + n + '"' + (n === pg ? ' class="on" aria-current="page"' : '') + '>' + n + '</button>'; }).join('') +
+          '<button type="button" data-qp="' + (pg + 1) + '"' + (pg === pages ? ' disabled' : '') + ' aria-label="' + esc(t('v.next')) + '"><i class="bi bi-chevron-right"></i></button></div></div>');
       case 'soon':
         return '<div class="placeholder-box"><i class="bi bi-hourglass-split"></i><b>' + esc(t('soon')) + '</b><br>' + esc(t('soon.detail')) + '</div>';
     }
@@ -269,6 +273,10 @@
       openIds.forEach(function (id) { var a = document.getElementById(id); if (a) toggle(a, true); }); openIds = [];
       $$('.acc', box).forEach(function (a) { a.classList.add('in'); });
     }
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-qp]'); if (!b || b.disabled) return;
+      QPAGE = +b.dataset.qp; draw(); var q = document.getElementById('quotes') || document.getElementById('acc-quotes'); if (q) q.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
     draw(); document.addEventListener('mm:lang', draw);
     fetch(ROOT + 'data/quotes.json').then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (j) { QUOTES = (j.quotes || []).filter(function (x) { return x && x.text; }); })
       .catch(function () { QUOTES = []; }).then(draw);

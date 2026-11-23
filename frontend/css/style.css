@@ -546,3 +546,33 @@ main>.block>.wrap>.acc-tools,.g-main>.acc-tools{margin-bottom:12px}
 .ft-b h3 strong{font-weight:700}
 .ft-b p{font-size:.92rem;color:var(--muted);line-height:1.7}
 .ft-vid{align-self:flex-start;margin-top:auto}
+
+/* Batch 6: small Leave-a-reply form, Home blocks, stacked quotes, compact featured cards */
+#cmForm.form-card{max-width:440px;padding:14px 14px 12px;border-radius:20px;box-shadow:var(--shadow-s)}
+#cmForm .field{margin-bottom:10px}
+#cmForm textarea{min-height:64px;height:64px}
+#cmForm .btn{padding:9px 14px;font-size:.92rem}
+.cm-reply{max-width:440px;font-size:1.05rem;margin:22px auto 10px}
+.ideal-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.ideal-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:99px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-s);font-weight:700;color:var(--maroon-d);font-size:.95rem}
+.ideal-chip i{color:var(--saffron-d)}
+.home-more{text-align:center;margin-top:18px}
+.home-about{max-width:860px;margin:0 auto}
+.quotes.stack{display:flex;flex-direction:column;gap:14px;max-width:820px;margin:0 auto}
+.q-pager{max-width:820px;margin:18px auto 0}
+#homeQuotes .quotes{max-width:820px;margin:0 auto}
+.ft-card{flex-direction:row}
+.ft-card .ft-img{flex:0 0 38%;aspect-ratio:auto;min-height:130px;border:0;padding:0;cursor:pointer}
+.ft-card.no-img .ft-b{padding:16px}
+.ft-t{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ft-act{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.ft-act .btn{padding:7px 14px;font-size:.85rem}
+.ft-vid{margin-top:0}
+@media(min-width:960px){
+  .ft-card{flex-direction:column}
+  .ft-card .ft-img{flex:none;aspect-ratio:4/3}
+}
+.ft-modal{max-width:560px}
+.ft-mimg{display:block;width:100%;max-height:60vh;object-fit:contain;background:var(--cream-2);border-radius:14px;margin-bottom:14px}
+.ft-mt{line-height:1.8;color:var(--ink,#2b1d16);margin-bottom:16px}
+.ft-card.no-img{align-self:start}
