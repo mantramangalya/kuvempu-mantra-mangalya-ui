@@ -536,3 +536,13 @@ main>.block>.wrap>.acc-tools,.g-main>.acc-tools{margin-bottom:12px}
 .cm-like.liked{background:#ffe3dc}
 .cm-like.liked i{color:#d12f2f}
 .cm-like:disabled{opacity:.7}
+
+/* Home: celebrities + main-stream cards */
+.ft-card{padding:0;overflow:hidden;display:flex;flex-direction:column;text-align:left}
+.ft-img{aspect-ratio:4/3;overflow:hidden;background:var(--cream,#fff7ec)}
+.ft-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.ft-b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ft-b h3{font-size:1.05rem;line-height:1.45;color:var(--maroon-d)}
+.ft-b h3 strong{font-weight:700}
+.ft-b p{font-size:.92rem;color:var(--muted);line-height:1.7}
+.ft-vid{align-self:flex-start;margin-top:auto}
