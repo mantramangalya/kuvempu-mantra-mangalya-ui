@@ -126,3 +126,8 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - Back-to-top button is smaller and sits above the Join button.
 - `data/community-says.json`: use a single `name` (string or `{kn,en}`) per entry. Old entries with `husband` + `wife` still display.
 - Guidance: "Need any help?" card is now the last block of the page instead of a sticky side panel.
+
+## Batch 11 notes
+- "Join the Community" is a button directly below the page banner on every page except Contact (added by `js/community.js`); the floating button is removed.
+- Backend errors: forms, comment list, likes, downloads and venues now say whether the backend is not connected, the user is offline, the service is down/unreachable, or the server rejected the request (texts `err.*` in `js/i18n.js`).
+- Header: app name is bold; Instagram/Facebook icons are centred in their circles.
