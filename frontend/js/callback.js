@@ -3,13 +3,13 @@
 (function () {
   'use strict';
   var kn = {
-    "cb.fab": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.title": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.name": "ಹೆಸರು", "cb.phone": "ಸಂಪರ್ಕ ಸಂಖ್ಯೆ", "cb.place": "ಸ್ಥಳ (ಐಚ್ಛಿಕ)",
+    "cb.fab": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.hide": "ಮರೆಮಾಡಿ", "cb.title": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.name": "ಹೆಸರು", "cb.phone": "ಸಂಪರ್ಕ ಸಂಖ್ಯೆ", "cb.place": "ಸ್ಥಳ (ಐಚ್ಛಿಕ)",
     "cb.help": "ನಿಮಗೆ ಯಾವ ಸಹಾಯ ಬೇಕು?", "cb.submit": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.sending": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…", "cb.close": "ಮುಚ್ಚಿ",
     "cb.ok": "ಧನ್ಯವಾದಗಳು! ನಿಮ್ಮ ಕೋರಿಕೆ ಸ್ವೀಕರಿಸಲಾಗಿದೆ. ನಾವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮಗೆ ಕರೆ ಮಾಡುತ್ತೇವೆ.", "cb.fail": "ಕ್ಷಮಿಸಿ, ಕೋರಿಕೆಯನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "cb.notconf": "ಸರ್ವರ್ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ.",
     "cb.e.help": "ಇದು 3 ರಿಂದ 200 ಅಕ್ಷರಗಳಿರಬೇಕು.", "cb.e.helpreq": "ನಿಮಗೆ ಯಾವ ಸಹಾಯ ಬೇಕು ಎಂದು ತಿಳಿಸಿ."
   };
   var en = {
-    "cb.fab": "Request call back", "cb.title": "Request a call back", "cb.name": "Name", "cb.phone": "Contact Number", "cb.place": "Place (optional)",
+    "cb.fab": "Request call back", "cb.hide": "Hide", "cb.title": "Request a call back", "cb.name": "Name", "cb.phone": "Contact Number", "cb.place": "Place (optional)",
     "cb.help": "What help you need?", "cb.submit": "Request call back", "cb.sending": "Sending…", "cb.close": "Close",
     "cb.ok": "Thank you! Your request has been received. We will call you back soon.", "cb.fail": "Sorry, we could not send your request. Please try again later.", "cb.notconf": "Backend is not connected yet.",
     "cb.e.help": "This must be 3 to 200 characters.", "cb.e.helpreq": "Please tell us what help you need."
@@ -22,9 +22,15 @@
     var t = M.t, esc = M.esc, $ = M.$, $$ = M.$$, modal = null, opener = null, busy = false;
     function L() { return M.lang(); }
 
+    var gone = false; try { gone = sessionStorage.getItem('mm_cb_off') === '1'; } catch (e) {}
     var fab = document.createElement('button'); fab.type = 'button'; fab.className = 'cb-fab'; fab.id = 'cbFab';
-    fab.innerHTML = '<i class="bi bi-telephone-inbound-fill"></i><span data-i18n="cb.fab"></span>';
-    document.body.appendChild(fab); M.applyI18n(fab);
+    fab.innerHTML = '<i class="bi bi-telephone-inbound-fill"></i>';
+    var wrap = document.createElement('div'); wrap.className = 'cb-wrap'; wrap.id = 'cbWrap'; wrap.hidden = gone;
+    var off = document.createElement('button'); off.type = 'button'; off.className = 'cb-off'; off.innerHTML = '<i class="bi bi-x"></i>';
+    wrap.appendChild(fab); wrap.appendChild(off); document.body.appendChild(wrap);
+    function labels() { var l = t('cb.fab'); fab.setAttribute('aria-label', l); fab.title = l; off.setAttribute('aria-label', t('cb.hide')); off.title = t('cb.hide'); }
+    labels(); document.addEventListener('mm:lang', labels);
+    off.addEventListener('click', function () { wrap.hidden = true; try { sessionStorage.setItem('mm_cb_off', '1'); } catch (e) {} });
 
     var V = {
       name: function (v) { v = v.trim(); return !v ? 'err.name.req' : (v.length < 3 || v.length > 30) ? 'err.name.len' : ''; },

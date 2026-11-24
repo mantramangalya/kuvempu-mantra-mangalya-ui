@@ -76,7 +76,7 @@
       var box = $('#saysBox'); if (says === null) return;
       if (!says.length) { box.innerHTML = '<div class="placeholder-box"><i class="bi bi-hourglass-split"></i><b>' + esc(t('soon')) + '</b><br>' + esc(t('soon.detail')) + '</div>'; return; }
       B.paged(box, says, 6, function (s) {
-        return '<article class="card says"><i class="bi bi-quote says-q"></i><p class="says-msg">' + esc(pick(s.message)) + '</p><div class="says-by"><b>' + esc(pick(s.husband)) + ' ' + esc(t('com.says.by')) + ' ' + esc(pick(s.wife)) + '</b>' +
+        return '<article class="card says"><i class="bi bi-quote says-q"></i><p class="says-msg">' + esc(pick(s.message)) + '</p><div class="says-by"><b>' + esc(pick(s.name != null ? s.name : (pick(s.husband) + ' ' + t('com.says.by') + ' ' + pick(s.wife)))) + '</b>' +
           (s.profession ? '<span><i class="bi bi-briefcase-fill"></i>' + esc(pick(s.profession)) + '</span>' : '') +
           (s.place ? '<span><i class="bi bi-geo-alt-fill"></i>' + esc(pick(s.place)) + '</span>' : '') + '</div></article>';
       }, 'cards');
