@@ -131,3 +131,8 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - "Join the Community" is a button directly below the page banner on every page except Contact (added by `js/community.js`); the floating button is removed.
 - Backend errors: forms, comment list, likes, downloads and venues now say whether the backend is not connected, the user is offline, the service is down/unreachable, or the server rejected the request (texts `err.*` in `js/i18n.js`).
 - Header: app name is bold; Instagram/Facebook icons are centred in their circles.
+
+## Batch 12 notes
+- One compact row under the page banner holds a small "Expand/Collapse all" text link and the small, right-aligned "Join the Community" button (Join is not shown on Contact). Community has no expand/collapse-all.
+- Community says: 2-line preview + "Read more" (opens a closable popup), 6 cards per page with pagination.
+- Contact social tiles are smaller with centred icons.
