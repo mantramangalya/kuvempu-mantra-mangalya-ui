@@ -22,6 +22,17 @@
   try { var saved = localStorage.getItem('mm_lang'); if (saved === 'en' || saved === 'kn') lang = saved; } catch (e) {}
   function t(k) { return (I[lang] && I[lang][k]) || I.kn[k] || k; }
 
+  /* message for a failed backend call: not connected / offline / service down / server said no */
+  function failMsg(e, key) {
+    if (e && e.message === 'not-configured') return t('err.notconf');
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) return t('err.offline');
+    if (e && e.message === 'api') return t(key);
+    return t('err.down');
+  }
+  function toast(msg) {
+    var d = document.createElement('div'); d.className = 'mm-toast'; d.setAttribute('role', 'alert'); d.textContent = msg; document.body.appendChild(d);
+    setTimeout(function () { d.classList.add('out'); setTimeout(function () { d.remove(); }, 400); }, 4500);
+  }
   function apiReady() { return C.API_URL && C.API_URL.indexOf('PASTE_') !== 0; }
 
   /* ---------- Layout ---------- */
@@ -429,7 +440,7 @@
           $$('.field', f).forEach(function (w) { w.classList.remove('invalid'); });
           ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
         })
-        .catch(function () { $('span', bad).textContent = t('form.fail'); bad.classList.add('show'); })
+        .catch(function (e) { $('span', bad).textContent = failMsg(e, 'form.fail'); bad.classList.add('show'); })
         .then(function () { setBusy(false); });
     });
     var mc = $('#f-message'), pc = $('#f-place');
@@ -487,7 +498,6 @@
     var first = $('main .block > .wrap');
     if (first) {
       var bar = toggleAll(first, 'afterbegin', function () { return $('main'); });
-      if (PAGE === 'community' && bar) bar.insertAdjacentHTML('afterbegin', '<button type="button" class="btn btn-primary" id="joinTop"><i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span></button>');
     }
   }
 
@@ -495,7 +505,7 @@
     toggleAll: toggleAll, imgDir: imgDir,
     imgFile: imgFile, imgSrc: imgSrc, imgErr: imgErr, EXT_RE: EXT_RE,
     t: t, lang: function () { return lang; }, esc: esc, $: $, $$: $$, ROOT: ROOT, actions: actions,
-    apiGet: apiGet, cached: cached, apiReady: apiReady, toggle: toggle, observe: observe, applyI18n: applyI18n
+    apiGet: apiGet, failMsg: failMsg, toast: toast, cached: cached, apiReady: apiReady, toggle: toggle, observe: observe, applyI18n: applyI18n
   };
 
   /* ---------- Boot ---------- */

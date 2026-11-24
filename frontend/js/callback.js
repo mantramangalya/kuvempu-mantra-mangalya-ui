@@ -5,13 +5,13 @@
   var kn = {
     "cb.fab": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.hide": "ಮರೆಮಾಡಿ", "cb.title": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.name": "ಹೆಸರು", "cb.phone": "ಸಂಪರ್ಕ ಸಂಖ್ಯೆ", "cb.place": "ಸ್ಥಳ (ಐಚ್ಛಿಕ)",
     "cb.help": "ನಿಮಗೆ ಯಾವ ಸಹಾಯ ಬೇಕು?", "cb.submit": "ಕರೆ ಮಾಡಲು ಕೋರಿ", "cb.sending": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…", "cb.close": "ಮುಚ್ಚಿ",
-    "cb.ok": "ಧನ್ಯವಾದಗಳು! ನಿಮ್ಮ ಕೋರಿಕೆ ಸ್ವೀಕರಿಸಲಾಗಿದೆ. ನಾವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮಗೆ ಕರೆ ಮಾಡುತ್ತೇವೆ.", "cb.fail": "ಕ್ಷಮಿಸಿ, ಕೋರಿಕೆಯನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "cb.notconf": "ಸರ್ವರ್ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ.",
+    "cb.ok": "ಧನ್ಯವಾದಗಳು! ನಿಮ್ಮ ಕೋರಿಕೆ ಸ್ವೀಕರಿಸಲಾಗಿದೆ. ನಾವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮಗೆ ಕರೆ ಮಾಡುತ್ತೇವೆ.", "cb.fail": "ಕ್ಷಮಿಸಿ, ಕೋರಿಕೆಯನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "cb.notconf": "ಬ್ಯಾಕ್‌ಎಂಡ್ ಸೇವೆ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ. ದಯವಿಟ್ಟು ಸೈಟ್ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
     "cb.e.help": "ಇದು 3 ರಿಂದ 200 ಅಕ್ಷರಗಳಿರಬೇಕು.", "cb.e.helpreq": "ನಿಮಗೆ ಯಾವ ಸಹಾಯ ಬೇಕು ಎಂದು ತಿಳಿಸಿ."
   };
   var en = {
     "cb.fab": "Request call back", "cb.hide": "Hide", "cb.title": "Request a call back", "cb.name": "Name", "cb.phone": "Contact Number", "cb.place": "Place (optional)",
     "cb.help": "What help you need?", "cb.submit": "Request call back", "cb.sending": "Sending…", "cb.close": "Close",
-    "cb.ok": "Thank you! Your request has been received. We will call you back soon.", "cb.fail": "Sorry, we could not send your request. Please try again later.", "cb.notconf": "Backend is not connected yet.",
+    "cb.ok": "Thank you! Your request has been received. We will call you back soon.", "cb.fail": "Sorry, we could not send your request. Please try again later.", "cb.notconf": "The backend service is not connected yet. Please contact the site admin.",
     "cb.e.help": "This must be 3 to 200 characters.", "cb.e.helpreq": "Please tell us what help you need."
   };
   Object.keys(kn).forEach(function (k) { window.MM_I18N.kn[k] = kn[k]; });
@@ -91,7 +91,7 @@
           $('#cbForm', modal).reset(); $('#cb-cnt', modal).textContent = '0/200'; $$('.field', modal).forEach(function (w) { w.classList.remove('invalid'); });
           $('#cbForm', modal).hidden = true; $('span', ok).textContent = t('cb.ok'); ok.classList.add('show');
         })
-        .catch(function () { $('span', bad).textContent = t('cb.fail'); bad.classList.add('show'); })
+        .catch(function (e) { $('span', bad).textContent = M.failMsg(e, 'cb.fail'); bad.classList.add('show'); })
         .then(function () { setBusy(false); });
     }
     function open() {

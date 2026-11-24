@@ -14,7 +14,7 @@
     "j.yes": "ಹೌದು", "j.no": "ಇಲ್ಲ", "j.submit": "ಸೇರಿ", "j.sending": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…", "j.close": "ಮುಚ್ಚಿ",
     "j.ok": "ಧನ್ಯವಾದಗಳು! ನೀವು ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಸಮುದಾಯಕ್ಕೆ ಸೇರಿದ್ದೀರಿ.", "j.ok.mail": "ದೃಢೀಕರಣ ಮೇಲ್ ಅನ್ನು ನಿಮ್ಮ ಇಮೇಲ್‌ಗೆ ಕಳುಹಿಸಲಾಗಿದೆ.",
     "j.dup": "ಈ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯ ವಿವರಗಳು ಈಗಾಗಲೇ ಇವೆ. ವಿವರಗಳನ್ನು ಬದಲಿಸಲು ಬಯಸಿದರೆ ಸಂಪರ್ಕ ಫಾರ್ಮ್ ಮೂಲಕ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.", "j.dup.link": "ಸಂಪರ್ಕ ಫಾರ್ಮ್‌ಗೆ ಹೋಗಿ",
-    "j.fail": "ಕ್ಷಮಿಸಿ, ವಿವರಗಳನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "j.notconf": "ಸರ್ವರ್ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ.",
+    "j.fail": "ಕ್ಷಮಿಸಿ, ವಿವರಗಳನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "j.notconf": "ಬ್ಯಾಕ್‌ಎಂಡ್ ಸೇವೆ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ. ದಯವಿಟ್ಟು ಸೈಟ್ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
     "j.e.name": "ಹೆಸರು 3 ರಿಂದ 30 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.e.chars": "ಅಕ್ಷರಗಳು ಮತ್ತು ಖಾಲಿ ಜಾಗ ಮಾತ್ರ ಅನುಮತಿ; ವಿಶೇಷ ಚಿಹ್ನೆಗಳು ಬೇಡ.", "j.e.req": "ಇದು ಕಡ್ಡಾಯ.",
     "j.e.phone": "10 ಅಂಕಿಯ ಭಾರತೀಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನೀಡಿ.", "j.e.email": "ಸರಿಯಾದ ಇಮೇಲ್ ವಿಳಾಸ ನೀಡಿ.", "j.e.date": "ಸರಿಯಾದ ದಿನಾಂಕವನ್ನು DD/MM/YYYY ರೂಪದಲ್ಲಿ ನೀಡಿ.", "j.e.future": "ಭವಿಷ್ಯದ ದಿನಾಂಕ ಬೇಡ.",
     "j.e.place": "ಸ್ಥಳ 3 ರಿಂದ 50 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.e.exp": "ಅನುಭವ 3 ರಿಂದ 200 ಅಕ್ಷರಗಳಿರಬೇಕು."
@@ -32,7 +32,7 @@
     "j.yes": "Yes", "j.no": "No", "j.submit": "Join", "j.sending": "Sending…", "j.close": "Close",
     "j.ok": "Thank you! You have joined the Mantra Mangalya community.", "j.ok.mail": "A confirmation email has been sent to your email address.",
     "j.dup": "Details for this mobile number already exist. If you want to update any details, please connect with us using the Contact form.", "j.dup.link": "Go to the Contact form",
-    "j.fail": "Sorry, we could not submit your details. Please try again after some time.", "j.notconf": "Backend is not connected yet.",
+    "j.fail": "Sorry, we could not submit your details. Please try again after some time.", "j.notconf": "The backend service is not connected yet. Please contact the site admin.",
     "j.e.name": "Name must be 3 to 30 characters.", "j.e.chars": "Only letters and spaces are allowed; no special characters.", "j.e.req": "This field is required.",
     "j.e.phone": "Enter a 10-digit Indian mobile number.", "j.e.email": "Enter a valid email address.", "j.e.date": "Enter a valid date as DD/MM/YYYY.", "j.e.future": "Future dates are not allowed.",
     "j.e.place": "Place must be 3 to 50 characters.", "j.e.exp": "Experience must be 3 to 200 characters."
@@ -209,7 +209,7 @@
           } else $('span', bad).textContent = t('j.fail');
           bad.classList.add('show'); bad.scrollIntoView({ block: 'nearest' });
         })
-        .catch(function () { $('span', bad).textContent = t('j.fail'); bad.classList.add('show'); })
+        .catch(function (e) { $('span', bad).textContent = M.failMsg(e, 'j.fail'); bad.classList.add('show'); })
         .then(function () { setBusy(false); });
     }
     function open() {
@@ -220,10 +220,14 @@
     }
     function close() { if (!modal || modal.hidden) return; modal.hidden = true; document.body.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
     var jb = $('#joinBtn'); if (jb) jb.addEventListener('click', open);
-    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#joinTop,#joinFab')) open(); });
-    if (!$('#joinFab')) {                                      // quick "Join the Community" button on every page
-      var fab = document.createElement('button'); fab.type = 'button'; fab.id = 'joinFab'; fab.className = 'join-fab';
-      fab.innerHTML = '<i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span>'; document.body.appendChild(fab); M.applyI18n(fab);
+    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#joinTop')) open(); });
+    if (!$('#joinTop') && document.body.getAttribute('data-page') !== 'contact') {   // "Join the Community" button just below the page banner (all pages except Contact)
+      var anchor = $('.page-hero') || $('#heroSlider');
+      if (anchor) {
+        var bar = document.createElement('div'); bar.className = 'join-bar';
+        bar.innerHTML = '<div class="wrap"><button type="button" class="btn btn-primary" id="joinTop"><i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span></button></div>';
+        anchor.insertAdjacentElement('afterend', bar); M.applyI18n(bar);
+      }
     }
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     document.addEventListener('mm:lang', function () {

@@ -9,7 +9,7 @@
     "code.pdf.note": "PDF ಗಾಗಿ ತೆರೆಯುವ ಮುದ್ರಣ ವಿಂಡೋದಲ್ಲಿ “Save as PDF” ಆಯ್ಕೆಮಾಡಿ.", "code.read": "ಸಂಹಿತೆಯ ಪಠ್ಯ",
     "v.intro": "ಜನಪ್ರಿಯ ಮತ್ತು ಕಡಿಮೆ ಖರ್ಚಿನ ಮದುವೆ ಸ್ಥಳಗಳು. ನಿಮ್ಮ ಜಿಲ್ಲೆಯ ಮೂಲಕ ಹುಡುಕಿ, ಮನೆಗೆ ಹತ್ತಿರದ ಸ್ಥಳವನ್ನು ಆರಿಸಿ.",
     "v.district": "ಜಿಲ್ಲೆ", "v.venue": "ಸ್ಥಳ", "v.address": "ವಿಳಾಸ", "v.contact": "ಸಂಪರ್ಕ ವಿವರಗಳು", "v.all": "ಎಲ್ಲಾ ಜಿಲ್ಲೆಗಳು", "v.search": "ಹುಡುಕಿ…", "v.sort": "ವಿಂಗಡಣೆ", "v.rows": "ಪುಟಕ್ಕೆ", "v.showing": "ತೋರಿಸಲಾಗುತ್ತಿದೆ", "v.of": "/", "v.prev": "ಹಿಂದಿನ", "v.next": "ಮುಂದಿನ",
-    "v.none": "ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದುವ ಸ್ಥಳಗಳಿಲ್ಲ.", "v.empty": "ಸ್ಥಳಗಳ ಪಟ್ಟಿಯನ್ನು ಶೀಘ್ರದಲ್ಲೇ ಸೇರಿಸಲಾಗುವುದು.", "v.error": "ಸ್ಥಳಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "v.notconf": "ಬ್ಯಾಕ್‌ಎಂಡ್ ಇನ್ನೂ ಸಂಪರ್ಕಿಸಲಾಗಿಲ್ಲ.",
+    "v.none": "ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದುವ ಸ್ಥಳಗಳಿಲ್ಲ.", "v.empty": "ಸ್ಥಳಗಳ ಪಟ್ಟಿಯನ್ನು ಶೀಘ್ರದಲ್ಲೇ ಸೇರಿಸಲಾಗುವುದು.", "v.error": "ಸ್ಥಳಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ಸೇವೆ ಈಗ ಲಭ್ಯವಿಲ್ಲ; ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "v.notconf": "ಬ್ಯಾಕ್‌ಎಂಡ್ ಸೇವೆ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ. ದಯವಿಟ್ಟು ಸೈಟ್ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
     "s.videos": "ವೀಡಿಯೊಗಳು", "s.photos": "ಫೋಟೋಗಳು", "s.na": "ಲಭ್ಯವಿಲ್ಲ", "s.more": "ಇನ್ನಷ್ಟು ತೋರಿಸಿ", "s.watch": "ವೀಕ್ಷಿಸಿ", "s.video": "ವೀಡಿಯೊ", "s.loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ…",
     "g.faq.intro": "ಸಾಮಾನ್ಯವಾಗಿ ಕೇಳುವ ಪ್ರಶ್ನೆಗಳು"
   };
@@ -20,7 +20,7 @@
     "code.pdf.note": "In the print window that opens, choose “Save as PDF”.", "code.read": "Text of the Code",
     "v.intro": "Popular, low-cost wedding venues. Filter by your district and pick one close to home.",
     "v.district": "District", "v.venue": "Venue", "v.address": "Address", "v.contact": "Contact Details", "v.all": "All districts", "v.search": "Search…", "v.sort": "Sort by", "v.rows": "Per page", "v.showing": "Showing", "v.of": "of", "v.prev": "Previous", "v.next": "Next",
-    "v.none": "No venues match your search.", "v.empty": "The list of venues will be added soon.", "v.error": "Could not load venues. Please try again later.", "v.notconf": "Backend is not connected yet.",
+    "v.none": "No venues match your search.", "v.empty": "The list of venues will be added soon.", "v.error": "Could not load venues. The service is not available right now; please check your internet connection or try again after some time.", "v.notconf": "The backend service is not connected yet. Please contact the site admin.",
     "s.videos": "Videos", "s.photos": "Photos", "s.na": "Not available", "s.more": "Show more", "s.watch": "Watch", "s.video": "Video", "s.loading": "Loading…",
     "g.faq.intro": "Frequently asked questions"
   };
