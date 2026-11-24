@@ -661,3 +661,14 @@ main>.block>.wrap>.acc-tools,.g-main>.acc-tools{margin-bottom:12px}
 .cb-off i{font-size:.95rem}
 .to-top{width:34px;height:34px;font-size:1rem;right:14px;bottom:62px}
 .ask-end{max-width:380px;margin:0 auto}
+
+/* Batch 11 */
+.join-fab{display:none}
+.join-bar{padding:14px 0 2px;text-align:center}
+.join-bar .btn{padding:9px 20px;font-size:.92rem}
+.brand [data-i18n]{font-weight:700!important;text-shadow:0 0 .6px currentColor}
+.soc-ic{display:inline-flex;align-items:center;justify-content:center;padding:0;line-height:1;flex:none;box-sizing:border-box}
+.soc-ic i{display:block;line-height:1;margin:0;font-size:inherit;width:1em;height:1em;text-align:center}
+.soc-ic i::before{display:block;vertical-align:0;line-height:1;width:1em;height:1em}
+.mm-toast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);max-width:min(92vw,460px);background:#3b1a1f;color:#fff;padding:10px 16px;border-radius:12px;font-size:.88rem;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:300;transition:opacity .4s}
+.mm-toast.out{opacity:0}
