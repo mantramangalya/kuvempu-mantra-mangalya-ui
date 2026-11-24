@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   var kn = {
-    "com.says": "ಸಮುದಾಯ ಹೇಳುತ್ತದೆ", "com.intro": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ರೀತಿಯಲ್ಲಿ ವಿವಾಹವಾದ ದಂಪತಿಗಳ ಪುಟ ಇದು.",
+    "com.says": "ಸಮುದಾಯ ಹೇಳುತ್ತದೆ", "com.more": "ಇನ್ನಷ್ಟು ಓದಿ", "com.intro": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ರೀತಿಯಲ್ಲಿ ವಿವಾಹವಾದ ದಂಪತಿಗಳ ಪುಟ ಇದು.",
     "com.join.title": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಸಮುದಾಯಕ್ಕೆ ಸೇರಿ", "com.join.text": "ನೀವು ಮಂತ್ರ ಮಾಂಗಲ್ಯ ರೀತಿಯಲ್ಲಿ ವಿವಾಹವಾಗಿದ್ದೀರಾ? ನಮ್ಮ ಕುಟುಂಬದ ಭಾಗವಾಗಿ.", "com.join.btn": "ಸಮುದಾಯಕ್ಕೆ ಸೇರಿ",
     "com.couples.none": "ದಂಪತಿಗಳ ಚಿತ್ರಗಳನ್ನು ಶೀಘ್ರದಲ್ಲೇ ಸೇರಿಸಲಾಗುವುದು.", "com.says.by": "ಮತ್ತು",
     "j.title": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಸಮುದಾಯಕ್ಕೆ ಸೇರಿ", "j.s1": "ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ", "j.s2": "ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ", "j.s3": "ಮದುವೆಯ ಮಾಹಿತಿ",
@@ -20,7 +20,7 @@
     "j.e.place": "ಸ್ಥಳ 3 ರಿಂದ 50 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.e.exp": "ಅನುಭವ 3 ರಿಂದ 200 ಅಕ್ಷರಗಳಿರಬೇಕು."
   };
   var en = {
-    "com.says": "Community says", "com.intro": "This page is for couples who married the Mantra Mangalya way.",
+    "com.says": "Community says", "com.more": "Read more", "com.intro": "This page is for couples who married the Mantra Mangalya way.",
     "com.join.title": "Join the Mantra Mangalya Community", "com.join.text": "Did you marry the Mantra Mangalya way? Be a part of our family.", "com.join.btn": "Join the Community",
     "com.couples.none": "Photos of couples will be added soon.", "com.says.by": "&",
     "j.title": "Join the Mantra Mangalya Community", "j.s1": "Personal Info", "j.s2": "Contact and Address Info", "j.s3": "Marriage Info",
@@ -71,14 +71,31 @@
     }
 
     /* ---------- Community says ---------- */
-    var says = null;
+    var says = null, sModal = null, sOpener = null;
+    function byline(s) {
+      var nm = pick(s.name != null ? s.name : (pick(s.husband) + ' ' + t('com.says.by') + ' ' + pick(s.wife)));
+      return '<div class="says-by"><b>' + esc(nm) + '</b>' +
+        (s.profession ? '<span><i class="bi bi-briefcase-fill"></i><em>' + esc(pick(s.profession)) + '</em></span>' : '') +
+        (s.place ? '<span><i class="bi bi-geo-alt-fill"></i><em>' + esc(pick(s.place)) + '</em></span>' : '') + '</div>';
+    }
+    function closeSays() { if (!sModal || sModal.hidden) return; sModal.hidden = true; document.body.style.overflow = ''; if (sOpener && sOpener.focus) sOpener.focus(); }
+    function openSays(i, from) {
+      var s = says && says[i]; if (!s) return;
+      if (!sModal) {
+        sModal = document.createElement('div'); sModal.className = 'modal'; sModal.hidden = true; sModal.setAttribute('role', 'dialog'); sModal.setAttribute('aria-modal', 'true'); document.body.appendChild(sModal);
+        sModal.addEventListener('click', function (e) { if (e.target === sModal || e.target.closest('.modal-x')) closeSays(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSays(); });
+      }
+      sOpener = from;
+      sModal.innerHTML = '<div class="modal-box sm says-modal"><button type="button" class="modal-x" aria-label="' + esc(t('j.close')) + '"><i class="bi bi-x-lg"></i></button><i class="bi bi-quote says-q"></i><p class="says-full">' + esc(pick(s.message)).replace(/\n/g, '<br>') + '</p>' + byline(s) + '</div>';
+      sModal.hidden = false; document.body.style.overflow = 'hidden'; $('.modal-x', sModal).focus();
+    }
+    document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-says]'); if (b) openSays(+b.getAttribute('data-says'), b); });
     function drawSays() {
       var box = $('#saysBox'); if (says === null) return;
       if (!says.length) { box.innerHTML = '<div class="placeholder-box"><i class="bi bi-hourglass-split"></i><b>' + esc(t('soon')) + '</b><br>' + esc(t('soon.detail')) + '</div>'; return; }
       B.paged(box, says, 6, function (s) {
-        return '<article class="card says"><i class="bi bi-quote says-q"></i><p class="says-msg">' + esc(pick(s.message)) + '</p><div class="says-by"><b>' + esc(pick(s.name != null ? s.name : (pick(s.husband) + ' ' + t('com.says.by') + ' ' + pick(s.wife)))) + '</b>' +
-          (s.profession ? '<span><i class="bi bi-briefcase-fill"></i>' + esc(pick(s.profession)) + '</span>' : '') +
-          (s.place ? '<span><i class="bi bi-geo-alt-fill"></i>' + esc(pick(s.place)) + '</span>' : '') + '</div></article>';
+        return '<article class="card says"><i class="bi bi-quote says-q"></i><p class="says-msg">' + esc(pick(s.message)) + '</p><button type="button" class="says-more" data-says="' + says.indexOf(s) + '">' + esc(t('com.more')) + ' <i class="bi bi-arrow-right-short"></i></button>' + byline(s) + '</article>';
       }, 'cards');
     }
 
@@ -221,13 +238,9 @@
     function close() { if (!modal || modal.hidden) return; modal.hidden = true; document.body.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
     var jb = $('#joinBtn'); if (jb) jb.addEventListener('click', open);
     document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#joinTop')) open(); });
-    if (!$('#joinTop') && document.body.getAttribute('data-page') !== 'contact') {   // "Join the Community" button just below the page banner (all pages except Contact)
-      var anchor = $('.page-hero') || $('#heroSlider');
-      if (anchor) {
-        var bar = document.createElement('div'); bar.className = 'join-bar';
-        bar.innerHTML = '<div class="wrap"><button type="button" class="btn btn-primary" id="joinTop"><i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span></button></div>';
-        anchor.insertAdjacentElement('afterend', bar); M.applyI18n(bar);
-      }
+    if (!$('#joinTop') && document.body.getAttribute('data-page') !== 'contact') {   // small "Join the Community" button, right aligned in the row below the banner (all pages except Contact)
+      var tools = M.pageTools && M.pageTools();
+      if (tools) { var jt = document.createElement('button'); jt.type = 'button'; jt.id = 'joinTop'; jt.className = 'btn btn-primary'; jt.innerHTML = '<i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span>'; tools.appendChild(jt); M.applyI18n(jt); }
     }
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     document.addEventListener('mm:lang', function () {

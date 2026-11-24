@@ -302,8 +302,8 @@
     }
     function aboutSet(sec, open) { sec.classList.toggle('shut', !open); SHUT[sec.id] = !open; $('.about-h', sec).setAttribute('aria-expanded', open); }
     if (!accordion && PAGE === 'about') {
-      aboutBar = document.createElement('div'); aboutBar.className = 'acc-tools'; aboutBar.innerHTML = '<button type="button" class="btn btn-light"><i class="bi"></i><span></span></button>';
-      box.insertAdjacentElement('beforebegin', aboutBar);
+      aboutBar = document.createElement('div'); aboutBar.className = 'acc-tools'; aboutBar.innerHTML = '<button type="button" class="tl-link"><i class="bi"></i><span></span></button>';
+      var atools = pageTools(); if (atools) atools.insertBefore(aboutBar, atools.firstChild); else box.insertAdjacentElement('beforebegin', aboutBar);
       $('button', aboutBar).addEventListener('click', function () { var o = this.dataset.mode === 'expand'; $$('.about-sec', box).forEach(function (x) { aboutSet(x, o); }); aboutRefresh(); });
       document.addEventListener('mm:lang', function () { setTimeout(aboutRefresh, 0); });
       box.addEventListener('click', function (e) { var h = e.target.closest('.about-h'); if (h) { var sec = h.parentNode; aboutSet(sec, sec.classList.contains('shut')); aboutRefresh(); } });
@@ -457,9 +457,17 @@
   }
 
   /* ---------- Expand all / Collapse all (for .c-sec sections and .acc accordions inside a scope) ---------- */
+  /* one compact row right below the page banner: expand/collapse link + Join button */
+  function pageTools() {
+    var row = $('.page-tools .pt-row'); if (row) return row;
+    var anchor = $('.page-hero') || $('#heroSlider'); if (!anchor) return null;
+    var sec = document.createElement('div'); sec.className = 'page-tools'; sec.innerHTML = '<div class="wrap pt-row"></div>';
+    anchor.insertAdjacentElement('afterend', sec); return $('.pt-row', sec);
+  }
   function toggleAll(anchor, where, scopeFn) {
-    var bar = document.createElement('div'); bar.className = 'acc-tools'; bar.innerHTML = '<button type="button" class="btn btn-light"><i class="bi"></i><span></span></button>';
-    anchor.insertAdjacentElement(where, bar);
+    var bar = document.createElement('div'); bar.className = 'acc-tools'; bar.innerHTML = '<button type="button" class="tl-link"><i class="bi"></i><span></span></button>';
+    var tools = pageTools();
+    if (tools) tools.insertBefore(bar, tools.firstChild); else anchor.insertAdjacentElement(where, bar);
     var btn = $('button', bar), ic = $('i', btn), lb = $('span', btn);
     function items() { var sc = scopeFn(); return sc ? $$('.c-sec,.acc', sc) : []; }
     function isOpen(x) { return x.classList.contains('acc') ? x.classList.contains('open') : !x.classList.contains('shut'); }
@@ -495,17 +503,13 @@
   function initPageToggles() {
     if (PAGE !== 'community') return;
     makeSectionsCollapsible();
-    var first = $('main .block > .wrap');
-    if (first) {
-      var bar = toggleAll(first, 'afterbegin', function () { return $('main'); });
-    }
   }
 
   window.MM = {
     toggleAll: toggleAll, imgDir: imgDir,
     imgFile: imgFile, imgSrc: imgSrc, imgErr: imgErr, EXT_RE: EXT_RE,
     t: t, lang: function () { return lang; }, esc: esc, $: $, $$: $$, ROOT: ROOT, actions: actions,
-    apiGet: apiGet, failMsg: failMsg, toast: toast, cached: cached, apiReady: apiReady, toggle: toggle, observe: observe, applyI18n: applyI18n
+    apiGet: apiGet, pageTools: pageTools, failMsg: failMsg, toast: toast, cached: cached, apiReady: apiReady, toggle: toggle, observe: observe, applyI18n: applyI18n
   };
 
   /* ---------- Boot ---------- */
