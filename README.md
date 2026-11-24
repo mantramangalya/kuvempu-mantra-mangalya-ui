@@ -114,3 +114,9 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - Home: the first banner slide has no buttons (other slides keep "Learn more").
 - Home main-stream / celebrity entries accept `image` (file name, any case/extension), `photo`, `img` as alternatives; a missing photo is reported in the browser console ("photo not found") to help locate the wrong file name or folder.
 - Kannada label for the call-back button: "ಕರೆ ಮಾಡಲು ಕೋರಿ".
+
+## Batch 9 notes
+- "Join the Community" quick button (bottom right) and Instagram / Facebook icons in the header on every page; `js/community.js` is loaded on all pages for the join form.
+- Downloads: Word/PowerPoint/Excel files get a **View** button (opens in the Office online viewer; the site must be public), PDFs open directly.
+- `data/community-says.json`: new optional `profession` per couple (string or `{kn,en}`), shown with the place.
+- Quotes: edit `data/quotes.json`; Home shows two random ones after "About Mantra Mangalya Wedding".
