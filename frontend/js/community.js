@@ -42,7 +42,8 @@
 
   function start() {
     var M = window.MM, B = window.MM_BROWSE, C = window.MM_CONFIG;
-    if (!M || !B) return;
+    if (!M) return;
+    if (!B) B = { pick: function (o) { if (o == null) return ''; if (typeof o === 'string') return o; return o[M.lang()] || o.kn || o.en || ''; } };
     var t = M.t, esc = M.esc, $ = M.$, $$ = M.$$;
     function L() { return M.lang(); }
     function pick(o) { return B.pick(o); }
@@ -76,6 +77,7 @@
       if (!says.length) { box.innerHTML = '<div class="placeholder-box"><i class="bi bi-hourglass-split"></i><b>' + esc(t('soon')) + '</b><br>' + esc(t('soon.detail')) + '</div>'; return; }
       B.paged(box, says, 6, function (s) {
         return '<article class="card says"><i class="bi bi-quote says-q"></i><p class="says-msg">' + esc(pick(s.message)) + '</p><div class="says-by"><b>' + esc(pick(s.husband)) + ' ' + esc(t('com.says.by')) + ' ' + esc(pick(s.wife)) + '</b>' +
+          (s.profession ? '<span><i class="bi bi-briefcase-fill"></i>' + esc(pick(s.profession)) + '</span>' : '') +
           (s.place ? '<span><i class="bi bi-geo-alt-fill"></i>' + esc(pick(s.place)) + '</span>' : '') + '</div></article>';
       }, 'cards');
     }
@@ -218,7 +220,11 @@
     }
     function close() { if (!modal || modal.hidden) return; modal.hidden = true; document.body.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
     var jb = $('#joinBtn'); if (jb) jb.addEventListener('click', open);
-    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#joinTop')) open(); });
+    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#joinTop,#joinFab')) open(); });
+    if (!$('#joinFab')) {                                      // quick "Join the Community" button on every page
+      var fab = document.createElement('button'); fab.type = 'button'; fab.id = 'joinFab'; fab.className = 'join-fab';
+      fab.innerHTML = '<i class="bi bi-people-fill"></i><span data-i18n="com.join.btn"></span>'; document.body.appendChild(fab); M.applyI18n(fab);
+    }
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     document.addEventListener('mm:lang', function () {
       if (!modal) return;

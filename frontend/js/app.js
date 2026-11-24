@@ -33,7 +33,7 @@
         '<nav class="nav" id="nav" aria-label="Main">' + NAV.map(function (n) {
           return '<a href="' + href(n[1]) + '" class="' + (n[0] === PAGE ? 'active' : '') + '"' + (n[0] === PAGE ? ' aria-current="page"' : '') + '><i class="bi ' + n[2] + '"></i><span data-i18n="nav.' + n[0] + '"></span></a>';
         }).join('') + '</nav>' +
-        '<div class="actions"><button class="lang-toggle" id="langToggle" aria-label="Language / ಭಾಷೆ"><span data-l="kn">ಕನ್ನಡ</span><span data-l="en">EN</span></button>' +
+        '<div class="actions"><a class="soc-ic ig" href="' + esc(C.INSTAGRAM_URL) + '" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a class="soc-ic fb" href="' + esc(C.FACEBOOK_URL) + '" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a><button class="lang-toggle" id="langToggle" aria-label="Language / ಭಾಷೆ"><span data-l="kn">ಕನ್ನಡ</span><span data-l="en">EN</span></button>' +
         '<button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><i class="bi bi-list"></i></button></div></div></header>';
     }
     if (ftr) {

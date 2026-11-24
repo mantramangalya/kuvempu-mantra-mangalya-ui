@@ -12,14 +12,14 @@ window.MM_ABOUT = [
  kn:{ title:"ಮೂಲ ಆಶಯ", imgAlt:"ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಪುಸ್ತಕ", items:[
   ["bi-feather","ಸರಳತೆ","ಪೋಷಕರಿಗೆ ಆರ್ಥಿಕ ಹೊರೆಯಾಗದಂತೆ, ಮಿತವ್ಯಯದಲ್ಲಿ ವಿವಾಹವಾಗುವುದು."],
   ["bi-lightbulb","ವೈಚಾರಿಕತೆ","ಜ್ಯೋತಿಷ್ಯ, ಮುಹೂರ್ತ, ರಾಹುಕಾಲದಂತಹ ಮೂಢನಂಬಿಕೆಗಳನ್ನು ಬದಿಗೊತ್ತಿ ವಿವೇಚನೆಯಿಂದ ಬದುಕುವುದು."],
-  ["bi-balance-scale","ಸಮಾನತೆ","ಗಂಡು-ಹೆಣ್ಣು ಎಂಬ ತಾರತಮ್ಯವಿಲ್ಲದೆ, ಇಬ್ಬರೂ ಸಮಾನರು ಎಂಬ ಗೌರವದೊಂದಿಗೆ ಜೀವನ ಆರಂಭಿಸುವುದು."],
+  ["bi-gender-ambiguous","ಸಮಾನತೆ","ಗಂಡು-ಹೆಣ್ಣು ಎಂಬ ತಾರತಮ್ಯವಿಲ್ಲದೆ, ಇಬ್ಬರೂ ಸಮಾನರು ಎಂಬ ಗೌರವದೊಂದಿಗೆ ಜೀವನ ಆರಂಭಿಸುವುದು."],
   ["bi-shield-check","ಶೋಷಣೆ ಮುಕ್ತ","ವರದಕ್ಷಿಣೆ ಮತ್ತು ವಧುದಕ್ಷಿಣೆಯಂತಹ ಪಿಡುಗುಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ನಿಷೇಧಿಸುವುದು."],
   ["bi-globe-central-south-asia","ವಿಶ್ವಮಾನವ ಪರಿಕಲ್ಪನೆ","ಜಾತಿ, ಧರ್ಮ, ಭಾಷೆಗಳನ್ನು ಮೀರಿದ ಮಾನವೀಯ ಬಾಂಧವ್ಯ."],
   ["bi-chat-heart","ಅರ್ಥವಾಗುವ ಮಂತ್ರಗಳು","ಕನ್ನಡದಲ್ಲಿ, ಎಲ್ಲರಿಗೂ ಅರ್ಥವಾಗುವ ಪ್ರತಿಜ್ಞೆ ಮತ್ತು ಮಂತ್ರಗಳು."]]},
  en:{ title:"Core Ideals", imgAlt:"Mantra Mangalya book", items:[
   ["bi-feather","Simplicity","Marrying economically, without placing a financial burden on parents."],
   ["bi-lightbulb","Rationality","Setting aside superstitions such as astrology, muhurta and rahukala, and living with reason."],
-  ["bi-balance-scale","Equality","Starting life together with mutual respect, with no discrimination between man and woman."],
+  ["bi-gender-ambiguous","Equality","Starting life together with mutual respect, with no discrimination between man and woman."],
   ["bi-shield-check","Free from exploitation","Completely rejecting evils such as dowry and bride-price."],
   ["bi-globe-central-south-asia","Universal humanism","Human bonds that go beyond caste, religion and language."],
   ["bi-chat-heart","Mantras everyone understands","Vows and mantras in Kannada that everyone can understand."]]}

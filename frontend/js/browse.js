@@ -4,7 +4,7 @@
   'use strict';
   var M = window.MM; if (!M) return;
   var t = M.t, esc = M.esc, $ = M.$, $$ = M.$$;
-  var IMG = M.EXT_RE, PDF = /\.pdf$/i;
+  var IMG = M.EXT_RE, PDF = /\.pdf$/i, DOC = /\.(docx?|pptx?|xlsx?)$/i;
 
   function pick(o) { if (o == null) return ''; if (typeof o === 'string') return o; return o[M.lang()] || o.kn || o.en || ''; }
   function fmtSize(b) { if (!b) return ''; return b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB'; }
@@ -46,7 +46,7 @@
     }
     var icon = PDF.test(it.file) ? 'bi-file-earmark-pdf' : /\.docx?$/i.test(it.file) ? 'bi-file-earmark-word' : 'bi-file-earmark-text';
     return '<article class="card file hover"><div class="thumb"><i class="bi ' + icon + '"></i></div><h3>' + esc(lb) + '</h3><div class="meta">' + esc(it.file.split('.').pop().toUpperCase()) + (it.size ? ' · ' + esc(fmtSize(it.size)) : '') + '</div><div class="row">' +
-      (PDF.test(it.file) ? '<a class="btn btn-light" href="' + esc(src) + '" target="_blank" rel="noopener"><i class="bi bi-eye"></i>' + esc(t('dl.view')) + '</a>' : '') +
+      (PDF.test(it.file) ? '<a class="btn btn-light" href="' + esc(src) + '" target="_blank" rel="noopener"><i class="bi bi-eye"></i>' + esc(t('dl.view')) + '</a>' : DOC.test(it.file) ? '<a class="btn btn-light" href="https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(new URL(src, location.href).href) + '" target="_blank" rel="noopener"><i class="bi bi-eye"></i>' + esc(t('dl.view')) + '</a>' : '') +
       '<a class="btn btn-primary" href="' + esc(src) + '" download="' + esc(it.file) + '"><i class="bi bi-download"></i>' + esc(t('dl.download')) + '</a></div></article>';
   }
 
