@@ -672,3 +672,34 @@ main>.block>.wrap>.acc-tools,.g-main>.acc-tools{margin-bottom:12px}
 .soc-ic i::before{display:block;vertical-align:0;line-height:1;width:1em;height:1em}
 .mm-toast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);max-width:min(92vw,460px);background:#3b1a1f;color:#fff;padding:10px 16px;border-radius:12px;font-size:.88rem;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:300;transition:opacity .4s}
 .mm-toast.out{opacity:0}
+
+/* Batch 12 */
+.page-tools{padding:8px 0 0}
+.pt-row{display:flex;justify-content:flex-end;align-items:center;gap:14px;flex-wrap:wrap}
+.page-tools .acc-tools{margin:0;display:flex;align-items:center}
+.page-tools .acc-tools[hidden]{display:none}
+.tl-link{background:none;border:0;padding:2px 0;color:var(--maroon);font-weight:600;font-size:.8rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.tl-link i{display:none}
+.tl-link:hover{color:var(--saffron-d)}
+.page-tools .btn{padding:5px 12px;font-size:.78rem;gap:5px}
+.page-tools .btn i{font-size:.9rem}
+.page-hero+section.block,.page-tools+section.block{padding-top:14px}
+.page-hero+section.block .sec-head:first-child,.page-tools+section.block .sec-head:first-child{margin-top:0}
+/* community says: 2-line preview + read more, aligned byline */
+.says-msg{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:4px 0 6px}
+.says-more{background:none;border:0;padding:0;margin:0 0 12px;color:var(--saffron-d);font-weight:700;font-size:.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:2px}
+.says-more:hover{text-decoration:underline}
+.says-by span{display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.says-by span+span{margin-left:0}
+.says-by span i{flex:none;width:1em;margin:0;text-align:center;line-height:1.5}
+.says-by span em{font-style:normal;min-width:0}
+.says-modal .says-q{display:block;margin-bottom:2px}
+.says-full{line-height:1.8;margin:4px 0 14px;color:var(--ink)}
+/* contact social tiles: smaller, icon centred in its box */
+.social-grid{gap:8px}
+.social{padding:10px 12px;gap:10px;border-radius:14px}
+.social .ic{width:38px;height:38px;border-radius:12px;font-size:1.15rem;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
+.social .ic i{display:block;width:1em;height:1em;line-height:1;margin:0;text-align:center}
+.social .ic i::before{display:block;vertical-align:0;width:1em;height:1em;line-height:1}
+.social small{font-size:.74rem}
+.social b{font-size:.84rem}
