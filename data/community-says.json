@@ -1,0 +1,20 @@
+{
+ "_help": "Add one object per couple in 'items'. 'message' can be plain text or {\"kn\":\"..\",\"en\":\"..\"}; same for 'husband', 'wife', 'profession' (one profession per couple, e.g. \"Teacher\" or {\"kn\":\"ಶಿಕ್ಷಕರು\",\"en\":\"Teachers\"}) and 'place'.",
+ "_example": {
+  "message": {
+   "kn": "ನಮ್ಮ ಅನುಭವ…",
+   "en": "Our experience…"
+  },
+  "husband": "Husband name",
+  "wife": "Wife name",
+  "profession": {
+   "kn": "ವೃತ್ತಿ",
+   "en": "Profession"
+  },
+  "place": {
+   "kn": "ಮೈಸೂರು",
+   "en": "Mysuru"
+  }
+ },
+ "items": []
+}
