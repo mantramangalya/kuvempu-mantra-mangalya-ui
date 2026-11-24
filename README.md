@@ -120,3 +120,9 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - Downloads: Word/PowerPoint/Excel files get a **View** button (opens in the Office online viewer; the site must be public), PDFs open directly.
 - `data/community-says.json`: new optional `profession` per couple (string or `{kn,en}`), shown with the place.
 - Quotes: edit `data/quotes.json`; Home shows two random ones after "About Mantra Mangalya Wedding".
+
+## Batch 10 notes
+- Request call back is now a small round icon (tooltip/aria-label carry the text) with a small x to hide it; the choice lasts for the browser session.
+- Back-to-top button is smaller and sits above the Join button.
+- `data/community-says.json`: use a single `name` (string or `{kn,en}`) per entry. Old entries with `husband` + `wife` still display.
+- Guidance: "Need any help?" card is now the last block of the page instead of a sticky side panel.
