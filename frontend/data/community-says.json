@@ -1,5 +1,5 @@
 {
- "_help": "Add one object per couple in 'items'. 'message' can be plain text or {\"kn\":\"..\",\"en\":\"..\"}; same for 'husband', 'wife' and 'place'.",
+ "_help": "Add one object per couple in 'items'. 'message' can be plain text or {\"kn\":\"..\",\"en\":\"..\"}; same for 'husband', 'wife', 'profession' (one profession per couple, e.g. \"Teacher\" or {\"kn\":\"ಶಿಕ್ಷಕರು\",\"en\":\"Teachers\"}) and 'place'.",
  "_example": {
   "message": {
    "kn": "ನಮ್ಮ ಅನುಭವ…",
@@ -7,33 +7,14 @@
   },
   "husband": "Husband name",
   "wife": "Wife name",
+  "profession": {
+   "kn": "ವೃತ್ತಿ",
+   "en": "Profession"
+  },
   "place": {
    "kn": "ಮೈಸೂರು",
    "en": "Mysuru"
   }
  },
- "items": [{
-  "message": {
-   "kn": "ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…",
-   "en": "Our experience…Our experience…Our experience…Our experience…Our experience…Our experience…Our experience…Our experience…"
-  },
-  "husband": "Husband name",
-  "wife": "Wife name",
-  "place": {
-   "kn": "ಮೈಸೂರು",
-   "en": "Mysuru"
-  }
- },
- {
-  "message": {
-   "kn": "1111ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…ನಮ್ಮ ಅನುಭವ…",
-   "en": "1111Our experience…Our experience…Our experience…Our experience…Our experience…Our experience…Our experience…Our experience…"
-  },
-  "husband": "111Husband name",
-  "wife": "111Wife name",
-  "place": {
-   "kn": "11ಮೈಸೂರು",
-   "en": "11Mysuru"
-  }
- }]
+ "items": []
 }
