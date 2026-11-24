@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W94Q4SH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ಸಂಪರ್ಕ | ಕುವೆಂಪು ಮಂತ್ರ ಮಾಂಗಲ್ಯ</title>
+<meta name="theme-color" content="#7a1f2b">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;700&family=Noto+Serif+Kannada:wght@600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="contact" data-root="../">
+<div id="app-header"></div>
+<main id="main">
+  <section class="page-hero"><span class="float f1"></span><span class="float f2"></span><div class="wrap"><div class="ic"><i class="bi bi-envelope-heart"></i></div><h1 data-i18n="nav.contact"></h1><p data-i18n="ph.contact"></p></div></section>
+
+  <section class="block"><div class="wrap">
+    <div class="social-grid">
+      <a class="social reveal" href="mailto:mantramangalya1966@gmail.com"><span class="ic mail"><i class="bi bi-envelope-fill"></i></span><span><small data-i18n="contact.email"></small><b>mantramangalya1966@gmail.com</b></span></a>
+      <a class="social reveal" href="https://www.instagram.com/mantramangalya.maduve" target="_blank" rel="noopener"><span class="ic insta"><i class="bi bi-instagram"></i></span><span><small data-i18n="contact.instagram"></small><b>mantramangalya.maduve</b></span></a>
+      <a class="social reveal" href="https://www.facebook.com/mantramangalya.maduve" target="_blank" rel="noopener"><span class="ic fb"><i class="bi bi-facebook"></i></span><span><small data-i18n="contact.facebook"></small><b>mantramangalya.maduve</b></span></a>
+    </div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="wrap">
+    <div class="sec-head"><h2 data-i18n="form.title"></h2></div>
+    <form class="form-card reveal" id="queryForm" novalidate>
+      <div class="alert ok" id="alertOk" role="status"><i class="bi bi-check-circle-fill"></i><span></span></div>
+      <div class="alert bad" id="alertBad" role="alert"><i class="bi bi-exclamation-triangle-fill"></i><span></span></div>
+
+      <div class="f-row">
+      <div class="field"><label for="f-name"><span data-i18n="form.name"></span> <span class="req">*</span></label>
+        <input id="f-name" name="Name" type="text" maxlength="60" autocomplete="name" data-i18n-placeholder="form.ph.name" required>
+        <div class="err" role="alert"></div></div>
+      <div class="field"><label for="f-phone"><span data-i18n="form.phone"></span> <span class="req">*</span></label>
+        <input id="f-phone" name="Contact Number" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national" data-i18n-placeholder="form.ph.phone" required>
+        <div class="err" role="alert"></div></div>
+      </div>
+
+      <div class="f-row">
+      <div class="field"><label for="f-email"><span data-i18n="form.email"></span> <span class="req">*</span></label>
+        <input id="f-email" name="Email" type="email" autocomplete="email" data-i18n-placeholder="form.ph.email" required>
+        <div class="err" role="alert"></div></div>
+      <div class="field"><label for="f-place"><span data-i18n="form.place"></span> <span class="req">*</span></label>
+        <input id="f-place" name="Place" type="text" autocomplete="address-level2" data-i18n-placeholder="form.ph.place" required>
+        <div class="hint" id="cnt-place">0/200</div><div class="err" role="alert"></div></div>
+      </div>
+
+      <div class="field"><label for="f-topic"><span data-i18n="form.topic"></span> <span class="req">*</span></label>
+        <select id="f-topic" name="Topic" required></select>
+        <div class="err" role="alert"></div></div>
+
+      <div class="field"><label for="f-message"><span data-i18n="form.message"></span> <span class="req">*</span></label>
+        <textarea id="f-message" name="Message" data-i18n-placeholder="form.ph.message" required></textarea>
+        <div class="err" role="alert"></div></div>
+
+      <div class="consent"><i class="bi bi-shield-lock-fill"></i><p data-i18n="form.consent"></p></div>
+
+      <input class="hp" id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" id="submitBtn" type="submit" style="width:100%"><i class="bi bi-send-fill"></i><span data-i18n="form.submit"></span></button>
+    </form>
+  </div></section>
+</main>
+<div id="app-footer"></div>
+<script src="../js/config.js"></script>
+<script src="../data/manifest.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/callback.js"></script>
+<script src="../js/community.js"></script>
+</body>
+</html>
