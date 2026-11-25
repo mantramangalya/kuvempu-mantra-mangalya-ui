@@ -726,3 +726,18 @@ main>.block>.wrap>.acc-tools,.g-main>.acc-tools{margin-bottom:12px}
 .gl-list li span{font-size:.85rem;color:var(--muted)}
 .copy.credit{margin-top:4px}
 .copy.credit a{text-decoration:underline;text-underline-offset:3px}
+
+/* Batch 14 */
+.says-by b,.says-modal .says-by b{font-weight:700!important;color:var(--maroon-d)}
+/* Join form: fields side by side */
+#joinForm{display:grid;grid-template-columns:1fr;gap:0 12px}
+@media(min-width:360px){#joinForm{grid-template-columns:1fr 1fr}}
+#joinForm>*{grid-column:1/-1;min-width:0}
+@media(min-width:360px){
+  #joinForm>.field[data-k=name],#joinForm>.field[data-k=spouse],#joinForm>.field[data-k=phone],#joinForm>.field[data-k=email],#joinForm>.field[data-k=date],#joinForm>.field[data-k=place],#joinForm>.field[data-k=prof],#joinForm>.field[data-k=district]{grid-column:auto}
+}
+#joinForm .field{margin-bottom:10px}
+#joinForm .j-sec{margin:10px 0 8px}
+#joinForm .field input,#joinForm .field select{padding:10px 12px}
+#joinForm .field textarea{min-height:76px}
+#joinForm .consent{margin:2px 0 6px}
