@@ -136,3 +136,10 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - One compact row under the page banner holds a small "Expand/Collapse all" text link and the small, right-aligned "Join the Community" button (Join is not shown on Contact). Community has no expand/collapse-all.
 - Community says: 2-line preview + "Read more" (opens a closable popup), 6 cards per page with pagination.
 - Contact social tiles are smaller with centred icons.
+
+## Batch 13 notes
+- **GuestInfo sheet** (same spreadsheet): columns `Name | Profession | District | Enabled`. `GET ?action=guests` returns only Name, Profession, District of rows where Enabled is Y / YES / TRUE (any case). Guidance > Plan > Guest List groups guests by district (district names translated via `data/districts.json`, unknown values shown as they are) with a district filter.
+- **CommunityPeopleInfo**: new `Profession` column (added automatically to an existing sheet). The Join form has a required Profession field (2-50 characters).
+- Community says: random order on every load, 6 per page; heading "What Community says?".
+- Footer: copyright + "Designed by the K.P.Poornachandra Tejaswi Instagram Team (poornachandra.tejaswi.kp)".
+- Redeploy `backend/Code.gs` as a New version; `?action=ping` should show `v9-guests-profession`.
