@@ -143,3 +143,7 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 - Community says: random order on every load, 6 per page; heading "What Community says?".
 - Footer: copyright + "Designed by the K.P.Poornachandra Tejaswi Instagram Team (poornachandra.tejaswi.kp)".
 - Redeploy `backend/Code.gs` as a New version; `?action=ping` should show `v9-guests-profession`.
+
+## Batch 14 notes
+- Link previews (WhatsApp, Instagram, Facebook...): every page has Open Graph / Twitter tags pointing to `https://mantramangalya.in/mm-logo.png`. **Put `mm-logo.png` directly in `frontend/`** (PNG/JPG, ideally 1200x630 or at least 600x600, under 300 KB). If the site domain changes, update the URLs in the `<head>` of each page. Social apps cache previews; use Facebook's Sharing Debugger to refresh Facebook/Instagram, and WhatsApp may need a new link or some hours.
+- Join form fields are laid out two per row.
