@@ -104,8 +104,8 @@
     function renderPlan() {
       var Bw = window.MM_BROWSE, host = $('#tab-plan');
       var shut = $$('#tab-plan .c-sec.shut').map(function (x) { return x.id; });
-      host.innerHTML = Bw.shell('plan-venue', 'bi-geo-alt-fill', t('p.venue'), null, '<div id="venueBody"></div>') +
-        Bw.shell('plan-guests', 'bi-people-fill', t('p.guests'), null, soonBox()) +
+      host.innerHTML = Bw.shell('plan-venue', 'bi-geo-alt-fill', t('p.venue'), null, '<div id="venueBody"></div><p class="note-box note-venue"><i class="bi bi-info-circle-fill"></i><span>' + esc(t('g.note.venue')) + '</span></p>') +
+        Bw.shell('plan-guests', 'bi-people-fill', t('p.guests'), null, '<div id="guestBody"></div><div class="note-box note-guest"><i class="bi bi-megaphone-fill"></i><span><b><a href="' + M.ROOT + 'contact/">' + esc(t('g.note.guest1')) + '</a></b><br>' + esc(t('g.note.guest2')) + '</span></div>') +
         Bw.shell('plan-expense', 'bi-cash-coin', t('p.expense'), null, soonBox());
       shut.forEach(function (id) { var x = document.getElementById(id); if (x) { x.classList.add('shut'); $('.c-head', x).setAttribute('aria-expanded', 'false'); } });
     }
@@ -157,6 +157,49 @@
       $('#vSize').addEventListener('change', function (e) { V.size = +e.target.value; V.page = 1; drawVenue(); });
     }
 
+    /* ---------- 3b. Guest List (GuestInfo sheet, grouped by district) ---------- */
+    var GU = { rows: null, state: 'loading', district: '', dists: null, err: '' };
+    function loadGuests() {
+      var c = M.cached('guests');
+      if (c) { GU.rows = c.guests || []; GU.state = 'ok'; }
+      fetch(M.ROOT + 'data/districts.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
+        .then(function (j) { GU.dists = (j && j.districts) || []; if (GU.state === 'ok') drawGuests(true); });
+      M.apiGet('guests').then(function (j) { GU.rows = (j.guests || []).filter(function (x) { return x && x.name; }); GU.state = 'ok'; drawGuests(true); })
+        .catch(function (e) { if (!GU.rows) { GU.state = e && e.message === 'not-configured' ? 'nc' : 'err'; GU.err = M.failMsg(e, 'v.error'); } drawGuests(true); });
+    }
+    /* district label: translated through data/districts.json when possible, else the value itself */
+    function districtLabel(v) {
+      var key = String(v || '').trim().toLowerCase(); if (!key) return t('gl.other');
+      var d = (GU.dists || []).filter(function (x) { return String(x.en).toLowerCase() === key || String(x.kn).toLowerCase() === key; })[0];
+      return d ? (d[L()] || d.en) : String(v).trim();
+    }
+    function groupKey(v) {
+      var key = String(v || '').trim().toLowerCase(); if (!key) return '';
+      var d = (GU.dists || []).filter(function (x) { return String(x.en).toLowerCase() === key || String(x.kn).toLowerCase() === key; })[0];
+      return d ? String(d.en).toLowerCase() : key;   // same district written in en/kn lands in one group
+    }
+    function drawGuests(rebuild) {
+      var host = $('#guestBody'); if (!host) return;
+      if (GU.state === 'loading') { host.innerHTML = '<div class="skeleton"></div>'; return; }
+      if (GU.state !== 'ok') { host.innerHTML = '<div class="na"><i class="bi bi-cloud-slash"></i><p>' + esc(GU.state === 'nc' ? t('err.notconf') : GU.err || t('err.down')) + '</p></div>'; return; }
+      if (!GU.rows.length) { host.innerHTML = '<div class="na"><i class="bi bi-people"></i><p>' + esc(t('gl.empty')) + '</p></div>'; return; }
+      var groups = {}, order = [];
+      GU.rows.forEach(function (r) { var k = groupKey(r.district); if (!groups[k]) { groups[k] = { label: districtLabel(r.district), items: [] }; order.push(k); } groups[k].items.push(r); });
+      var loc = L() === 'kn' ? 'kn' : 'en';
+      order.sort(function (a, b) { if (!a) return 1; if (!b) return -1; return groups[a].label.localeCompare(groups[b].label, loc); });
+      if (GU.district && !groups[GU.district]) GU.district = '';
+      var show = GU.district ? [GU.district] : order;
+      var h = '<div class="v-tools gl-tools"><select id="glD" aria-label="' + esc(t('gl.filter')) + '"><option value="">' + esc(t('gl.all')) + '</option>' +
+        order.map(function (k) { return '<option value="' + esc(k) + '"' + (k === GU.district ? ' selected' : '') + '>' + esc(groups[k].label) + ' (' + groups[k].items.length + ')</option>'; }).join('') + '</select></div>';
+      h += show.map(function (k) {
+        var g = groups[k];
+        return '<div class="gl-group"><h4><i class="bi bi-geo-alt-fill"></i><span>' + esc(g.label) + '</span><em>' + g.items.length + ' ' + esc(t('gl.guests')) + '</em></h4><ul class="gl-list">' +
+          g.items.map(function (r) { return '<li><b>' + esc(r.name) + '</b>' + (r.profession ? '<span>' + esc(r.profession) + '</span>' : '') + '</li>'; }).join('') + '</ul></div>';
+      }).join('');
+      host.innerHTML = h;
+      $('#glD').addEventListener('change', function (e) { GU.district = e.target.value; drawGuests(); });
+    }
+
     /* ---------- 4. Photo Gallery (Videos + Photos) ---------- */
     var B = window.MM_BROWSE, S = { videos: undefined, photos: undefined };
     var PHOTOS = { id: 'g-photos', dir: 'images/mm-marriage-photos', kind: 'images', icon: 'bi-images', caption: false };
@@ -205,7 +248,7 @@
 
     var INIT = {
       guidance: renderGuide, code: renderCode, faq: renderFaq,
-      plan: function () { renderPlan(); loadVenues(); drawVenue(true); },
+      plan: function () { renderPlan(); loadVenues(); drawVenue(true); loadGuests(); },
       gallery: loadGallery
     };
 
@@ -213,7 +256,7 @@
       if (inited.guidance) renderGuide();
       if (inited.code) renderCode();
       if (inited.faq) renderFaq();
-      if (inited.plan) { renderPlan(); drawVenue(true); }
+      if (inited.plan) { renderPlan(); drawVenue(true); drawGuests(true); }
       if (inited.gallery && S.videos !== undefined) drawGallery();
     });
 

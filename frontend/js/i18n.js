@@ -2,6 +2,7 @@
 window.MM_I18N = {
 kn: {
  "site.name":"ಕುವೆಂಪು ಮಂತ್ರ ಮಾಂಗಲ್ಯ",
+ "foot.rights":"ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾದಿರಿಸಲಾಗಿದೆ.","foot.design":"ಈ ತಾಣವನ್ನು ಕೆ.ಪಿ.ಪೂರ್ಣಚಂದ್ರ ತೇಜಸ್ವಿ ಇನ್‌ಸ್ಟಾಗ್ರಾಂ ತಂಡ ವಿನ್ಯಾಸಗೊಳಿಸಿದೆ.",
  "site.tag":"ಸರಳ • ಸಮಾನ • ವಿಶ್ವಮಾನವ ವಿವಾಹ",
  "nav.home":"ಮುಖಪುಟ","nav.about":"ಕುರಿತು","nav.guidance":"ಮಾರ್ಗದರ್ಶನ","nav.downloads":"ಡೌನ್‌ಲೋಡ್‌ಗಳು","nav.community":"ಸಮುದಾಯ","nav.contact":"ಸಂಪರ್ಕ",
  "title.home":"ಮುಖಪುಟ","title.about":"ಕುರಿತು","title.guidance":"ಮಾರ್ಗದರ್ಶನ","title.downloads":"ಡೌನ್‌ಲೋಡ್‌ಗಳು","title.community":"ಸಮುದಾಯ","title.contact":"ಸಂಪರ್ಕ",
@@ -37,6 +38,7 @@ kn: {
 },
 en: {
  "site.name":"Kuvempu Mantra Mangalya",
+ "foot.rights":"All rights reserved.","foot.design":"Designed by the K.P.Poornachandra Tejaswi Instagram Team",
  "site.tag":"Simple • Equal • Universal Wedding",
  "nav.home":"Home","nav.about":"About","nav.guidance":"Guidance","nav.downloads":"Downloads","nav.community":"Community","nav.contact":"Contact",
  "title.home":"Home","title.about":"About","title.guidance":"Guidance","title.downloads":"Downloads","title.community":"Community","title.contact":"Contact",

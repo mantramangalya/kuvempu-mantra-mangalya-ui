@@ -2,11 +2,11 @@
 (function () {
   'use strict';
   var kn = {
-    "com.says": "ಸಮುದಾಯ ಹೇಳುತ್ತದೆ", "com.more": "ಇನ್ನಷ್ಟು ಓದಿ", "com.intro": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ರೀತಿಯಲ್ಲಿ ವಿವಾಹವಾದ ದಂಪತಿಗಳ ಪುಟ ಇದು.",
+    "com.says": "ಸಮುದಾಯ ಏನು ಹೇಳುತ್ತದೆ?", "com.more": "ಇನ್ನಷ್ಟು ಓದಿ", "com.intro": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ರೀತಿಯಲ್ಲಿ ವಿವಾಹವಾದ ದಂಪತಿಗಳ ಪುಟ ಇದು.",
     "com.join.title": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಸಮುದಾಯಕ್ಕೆ ಸೇರಿ", "com.join.text": "ನೀವು ಮಂತ್ರ ಮಾಂಗಲ್ಯ ರೀತಿಯಲ್ಲಿ ವಿವಾಹವಾಗಿದ್ದೀರಾ? ನಮ್ಮ ಕುಟುಂಬದ ಭಾಗವಾಗಿ.", "com.join.btn": "ಸಮುದಾಯಕ್ಕೆ ಸೇರಿ",
     "com.couples.none": "ದಂಪತಿಗಳ ಚಿತ್ರಗಳನ್ನು ಶೀಘ್ರದಲ್ಲೇ ಸೇರಿಸಲಾಗುವುದು.", "com.says.by": "ಮತ್ತು",
     "j.title": "ಮಂತ್ರ ಮಾಂಗಲ್ಯ ಸಮುದಾಯಕ್ಕೆ ಸೇರಿ", "j.s1": "ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ", "j.s2": "ಸಂಪರ್ಕ ಮತ್ತು ವಿಳಾಸ", "j.s3": "ಮದುವೆಯ ಮಾಹಿತಿ",
-    "j.name": "ಹೆಸರು", "j.spouse": "ಸಂಗಾತಿಯ ಹೆಸರು", "j.spouse.skip": "ಸಂಗಾತಿ ಈಗ ಇಲ್ಲ (ಬಿಟ್ಟುಬಿಡಿ)",
+    "j.name": "ಹೆಸರು", "j.prof": "ವೃತ್ತಿ", "j.e.prof": "ವೃತ್ತಿ 2 ರಿಂದ 50 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.spouse": "ಸಂಗಾತಿಯ ಹೆಸರು", "j.spouse.skip": "ಸಂಗಾತಿ ಈಗ ಇಲ್ಲ (ಬಿಟ್ಟುಬಿಡಿ)",
     "j.phone": "ಸಂಪರ್ಕ ಸಂಖ್ಯೆ", "j.email": "ಇಮೇಲ್", "j.email.skip": "ನನ್ನ ಬಳಿ ಇಮೇಲ್ ಇಲ್ಲ", "j.district": "ಜಿಲ್ಲೆ", "j.district.sel": "ಜಿಲ್ಲೆ ಆರಿಸಿ",
     "j.consent": "ನಿಮ್ಮ ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಸಂವಹನದ ಉದ್ದೇಶಕ್ಕೆ ಮಾತ್ರ ಬಳಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಬೇರೆ ಯಾರೊಂದಿಗೂ ಹಂಚಿಕೊಳ್ಳುವುದಿಲ್ಲ ಮತ್ತು ಅದು ಈ ಸೈಟ್‌ನ ಮಾಲೀಕರ ಬಳಿ ಇರುತ್ತದೆ.",
     "j.date": "ಮದುವೆಯ ದಿನಾಂಕ", "j.date.ph": "ದಿ/ತಿ/ವರ್ಷ (DD/MM/YYYY)", "j.place": "ಮದುವೆಯ ಸ್ಥಳ", "j.place.ph": "ಊರು / ಪ್ರದೇಶ / ಪೂರ್ಣ ವಿಳಾಸ",
@@ -20,11 +20,11 @@
     "j.e.place": "ಸ್ಥಳ 3 ರಿಂದ 50 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.e.exp": "ಅನುಭವ 3 ರಿಂದ 200 ಅಕ್ಷರಗಳಿರಬೇಕು."
   };
   var en = {
-    "com.says": "Community says", "com.more": "Read more", "com.intro": "This page is for couples who married the Mantra Mangalya way.",
+    "com.says": "What Community says?", "com.more": "Read more", "com.intro": "This page is for couples who married the Mantra Mangalya way.",
     "com.join.title": "Join the Mantra Mangalya Community", "com.join.text": "Did you marry the Mantra Mangalya way? Be a part of our family.", "com.join.btn": "Join the Community",
     "com.couples.none": "Photos of couples will be added soon.", "com.says.by": "&",
     "j.title": "Join the Mantra Mangalya Community", "j.s1": "Personal Info", "j.s2": "Contact and Address Info", "j.s3": "Marriage Info",
-    "j.name": "Name", "j.spouse": "Spouse Name", "j.spouse.skip": "Spouse is no more (skip)",
+    "j.name": "Name", "j.prof": "Profession", "j.e.prof": "Profession must be 2 to 50 characters.", "j.spouse": "Spouse Name", "j.spouse.skip": "Spouse is no more (skip)",
     "j.phone": "Contact Number", "j.email": "Email", "j.email.skip": "I don't have an email", "j.district": "District", "j.district.sel": "Select district",
     "j.consent": "Your contact information is used only for communication purposes. It will not be shared with anyone else and it lies with the owner of this site.",
     "j.date": "Date of Marriage", "j.date.ph": "DD/MM/YYYY", "j.place": "Place of Marriage", "j.place.ph": "Town / area / full address",
@@ -102,6 +102,7 @@
     if ($('#coupleGrid')) {                                   // gallery + 'Community says' exist on the Community page only
       Promise.all([B.listDir(COUPLES), getJson('data/community-says.json')]).then(function (r) {
         couples = r[0]; says = (r[1] && r[1].items || []).filter(function (x) { return x && x.message; });
+        says.sort(function () { return Math.random() - .5; });   // different order on every page load
         drawCouples(); drawSays();
       });
       document.addEventListener('mm:lang', function () { drawCouples(); drawSays(); });
@@ -124,6 +125,7 @@
         '<h3 class="j-sec" data-i18n="j.s1"></h3>' +
         fld('name', 'j.name', '<input id="j-name" type="text" maxlength="30" autocomplete="name">') +
         fld('spouse', 'j.spouse', '<input id="j-spouse" type="text" maxlength="30">', skip('spouse', 'j.spouse.skip')) +
+        fld('prof', 'j.prof', '<input id="j-prof" type="text" maxlength="50" autocomplete="organization-title">') +
         '<h3 class="j-sec" data-i18n="j.s2"></h3>' +
         fld('phone', 'j.phone', '<input id="j-phone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national">') +
         fld('email', 'j.email', '<input id="j-email" type="email" autocomplete="email">', skip('email', 'j.email.skip')) +
@@ -157,6 +159,7 @@
     var V = {
       name: function () { return nameErr($('#j-name', modal).value); },
       spouse: function () { return $('#j-spouseSkip', modal).checked ? '' : nameErr($('#j-spouse', modal).value); },
+      prof: function () { var v = $('#j-prof', modal).value.trim(); return !v ? 'j.e.req' : (v.length < 2 || v.length > 50) ? 'j.e.prof' : ''; },
       phone: function () { var v = $('#j-phone', modal).value.trim(); return !v ? 'j.e.req' : !/^[6-9]\d{9}$/.test(v) ? 'j.e.phone' : ''; },
       email: function () { if ($('#j-emailSkip', modal).checked) return ''; var v = $('#j-email', modal).value.trim(); return !v ? 'j.e.req' : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? 'j.e.email' : ''; },
       district: function () { return $('#j-district', modal).value ? '' : 'j.e.req'; },
@@ -205,6 +208,7 @@
         type: 'community',
         'Name': $('#j-name', modal).value.trim(),
         'Spouse Name': $('#j-spouseSkip', modal).checked ? '' : $('#j-spouse', modal).value.trim(),
+        'Profession': $('#j-prof', modal).value.trim(),
         'Contact Number': $('#j-phone', modal).value.trim(), 'Email': email,
         'District': dd.en, 'DistrictDisplay': dd[L()] || dd.en,
         'Marriage Date': $('#j-date', modal).value.trim(), 'Marriage Place': $('#j-place', modal).value.trim(),

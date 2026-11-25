@@ -56,7 +56,8 @@
         '<a href="mailto:' + esc(C.EMAIL) + '"><i class="bi bi-envelope-fill"></i>' + esc(C.EMAIL) + '</a>' +
         '<a href="' + esc(C.INSTAGRAM_URL) + '" target="_blank" rel="noopener"><i class="bi bi-instagram"></i>' + esc(C.INSTAGRAM_HANDLE) + '</a>' +
         '<a href="' + esc(C.FACEBOOK_URL) + '" target="_blank" rel="noopener"><i class="bi bi-facebook"></i>' + esc(C.FACEBOOK_HANDLE) + '</a></div></div></div>' +
-        '<div class="foot-quote" data-i18n="foot.quote"></div><p class="copy">© ' + new Date().getFullYear() + ' <span data-i18n="site.name"></span></p></div></footer>' +
+        '<div class="foot-quote" data-i18n="foot.quote"></div><p class="copy">© ' + new Date().getFullYear() + ' <span data-i18n="site.name"></span>. <span data-i18n="foot.rights"></span></p>' +
+        '<p class="copy credit"><span data-i18n="foot.design"></span> <a href="https://www.instagram.com/poornachandra.tejaswi.kp" target="_blank" rel="noopener">(poornachandra.tejaswi.kp)</a></p></div></footer>' +
         '<button class="to-top" id="toTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>';
     }
   }
