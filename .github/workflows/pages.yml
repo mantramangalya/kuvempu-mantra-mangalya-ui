@@ -9,24 +9,66 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read          # lets the deploy job check that the uploaded artifact is visible
 
+# Never cancel a running deployment; a new run waits in the queue instead.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/configure-pages@v5
       - name: Build file manifest (Downloads + Photo Gallery)
         run: python3 scripts/build-manifest.py
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v5
         with:
+          name: github-pages
           path: frontend
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment_retry.outputs.page_url || steps.deployment.outputs.page_url }}
+    steps:
+      # GitHub's artifact API can lag a few seconds behind the upload ("Fetching artifact metadata failed").
+      # Wait until the artifact is listed before deploying.
+      - name: Wait for the artifact to be visible
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 12); do
+            n=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts" --jq '[.artifacts[] | select(.name=="github-pages")] | length' 2>/dev/null || echo 0)
+            echo "attempt $i: github-pages artifacts visible = $n"
+            [ "$n" -ge 1 ] && exit 0
+            sleep 10
+          done
+          echo "Artifact not listed yet; continuing anyway"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          artifact_name: github-pages
+
+      # A transient GitHub API error is the usual reason the first attempt fails: wait, then try once more.
+      - name: Wait before retrying
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages
