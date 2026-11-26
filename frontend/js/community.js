@@ -79,12 +79,17 @@
 
     /* ---------- Community says ---------- */
     var says = null, sModal = null, sOpener = null;
+    function saysAvatar(s) {
+      var f = s.image ? String(pick(s.image)).trim().replace(/^\/+/, '').split('/').pop() : '';
+      return '<span class="says-av">' + (f ? '<img src="' + esc(M.ROOT + 'images/mm-community-says/' + encodeURIComponent(f)) + '" alt="" loading="lazy" data-says-img>' : '') + '<i class="bi bi-people-fill"></i></span>';
+    }
     function byline(s) {
       var nm = pick(s.name != null ? s.name : (pick(s.husband) + ' ' + t('com.says.by') + ' ' + pick(s.wife)));
-      return '<div class="says-by"><b>' + esc(nm) + '</b>' +
+      return '<div class="says-by-wrap' + (s.image ? ' has-img' : '') + '">' + saysAvatar(s) + '<div class="says-by"><b>' + esc(nm) + '</b>' +
         (s.profession ? '<span><i class="bi bi-briefcase-fill"></i><em>' + esc(pick(s.profession)) + '</em></span>' : '') +
-        (s.place ? '<span><i class="bi bi-geo-alt-fill"></i><em>' + esc(pick(s.place)) + '</em></span>' : '') + '</div>';
+        (s.place ? '<span><i class="bi bi-geo-alt-fill"></i><em>' + esc(pick(s.place)) + '</em></span>' : '') + '</div></div>';
     }
+    document.addEventListener('error', function (e) { var im = e.target; if (im && im.tagName === 'IMG' && im.hasAttribute('data-says-img')) { var w = im.parentNode; im.remove(); if (w) w.classList.add('noimg'); } }, true);
     function closeSays() { if (!sModal || sModal.hidden) return; sModal.hidden = true; document.body.style.overflow = ''; if (sOpener && sOpener.focus) sOpener.focus(); }
     function openSays(i, from) {
       var s = says && says[i]; if (!s) return;
