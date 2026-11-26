@@ -52,7 +52,7 @@
     },
     {
       "id": "code-formats",
-      "dir": "downloads/mm-marriage-code-formats",
+      "dir": "data/mm-marriage-code-formats",
       "prefix": "mm-marriage-code-format-",
       "kind": "files",
       "icon": "bi-journal-richtext",
@@ -67,7 +67,7 @@
     },
     {
       "id": "book",
-      "dir": "downloads",
+      "dir": "data",
       "file": "kuvempu-mantra-mangalya-book.pdf",
       "kind": "files",
       "icon": "bi-book-half",
