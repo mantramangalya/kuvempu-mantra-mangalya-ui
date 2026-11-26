@@ -17,7 +17,7 @@
     "j.fail": "ಕ್ಷಮಿಸಿ, ವಿವರಗಳನ್ನು ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಪ್ರಯತ್ನಿಸಿ.", "j.notconf": "ಬ್ಯಾಕ್‌ಎಂಡ್ ಸೇವೆ ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ. ದಯವಿಟ್ಟು ಸೈಟ್ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
     "j.e.name": "ಹೆಸರು 3 ರಿಂದ 30 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.e.chars": "ಅಕ್ಷರಗಳು ಮತ್ತು ಖಾಲಿ ಜಾಗ ಮಾತ್ರ ಅನುಮತಿ; ವಿಶೇಷ ಚಿಹ್ನೆಗಳು ಬೇಡ.", "j.e.req": "ಇದು ಕಡ್ಡಾಯ.",
     "j.e.phone": "10 ಅಂಕಿಯ ಭಾರತೀಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನೀಡಿ.", "j.e.email": "ಸರಿಯಾದ ಇಮೇಲ್ ವಿಳಾಸ ನೀಡಿ.", "j.e.date": "ಸರಿಯಾದ ದಿನಾಂಕವನ್ನು DD/MM/YYYY ರೂಪದಲ್ಲಿ ನೀಡಿ.", "j.e.future": "ಭವಿಷ್ಯದ ದಿನಾಂಕ ಬೇಡ.",
-    "j.e.place": "ಸ್ಥಳ 3 ರಿಂದ 50 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.e.exp": "ಅನುಭವ 3 ರಿಂದ 200 ಅಕ್ಷರಗಳಿರಬೇಕು."
+    "j.e.place": "ಸ್ಥಳ 3 ರಿಂದ 50 ಅಕ್ಷರಗಳಿರಬೇಕು.", "j.e.exp": "ಅನುಭವ 3 ರಿಂದ 500 ಅಕ್ಷರಗಳಿರಬೇಕು."
   };
   var en = {
     "com.says": "What Community says?", "com.more": "Read more", "com.intro": "This page is for couples who married the Mantra Mangalya way.",
@@ -35,7 +35,7 @@
     "j.fail": "Sorry, we could not submit your details. Please try again after some time.", "j.notconf": "The backend service is not connected yet. Please contact the site admin.",
     "j.e.name": "Name must be 3 to 30 characters.", "j.e.chars": "Only letters and spaces are allowed; no special characters.", "j.e.req": "This field is required.",
     "j.e.phone": "Enter a 10-digit Indian mobile number.", "j.e.email": "Enter a valid email address.", "j.e.date": "Enter a valid date as DD/MM/YYYY.", "j.e.future": "Future dates are not allowed.",
-    "j.e.place": "Place must be 3 to 50 characters.", "j.e.exp": "Experience must be 3 to 200 characters."
+    "j.e.place": "Place must be 3 to 50 characters.", "j.e.exp": "Experience must be 3 to 500 characters."
   };
   Object.keys(kn).forEach(function (k) { window.MM_I18N.kn[k] = kn[k]; });
   Object.keys(en).forEach(function (k) { window.MM_I18N.en[k] = en[k]; });
@@ -47,6 +47,13 @@
     var t = M.t, esc = M.esc, $ = M.$, $$ = M.$$;
     function L() { return M.lang(); }
     function pick(o) { return B.pick(o); }
+    /* says message: JSON may hold \n for new lines, \" for quotes, or an array of lines; "quoted" text is shown bold */
+    function msgText(s) { var v = Array.isArray(s.message) ? s.message : pick(s.message); if (Array.isArray(v)) v = v.join('\n'); return String(v == null ? '' : v); }
+    function fmtMsg(txt, multi) {
+      var h = esc(txt).replace(/\r\n?/g, '\n');
+      h = h.replace(/&quot;([^\n]*?)&quot;/g, '<strong class="says-quote">&quot;$1&quot;</strong>').replace(/\u201C([^\n]*?)\u201D/g, '<strong class="says-quote">\u201C$1\u201D</strong>');
+      return multi ? h.replace(/\n/g, '<br>') : h.replace(/\n+/g, ' ');
+    }
     function getJson(path) { return fetch(M.ROOT + path).then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () { return null; }); }
 
     /* ---------- couples photos: every image in images/mm-community-couples (any name, any format) ---------- */
@@ -87,7 +94,7 @@
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSays(); });
       }
       sOpener = from;
-      sModal.innerHTML = '<div class="modal-box sm says-modal"><button type="button" class="modal-x" aria-label="' + esc(t('j.close')) + '"><i class="bi bi-x-lg"></i></button><i class="bi bi-quote says-q"></i><p class="says-full">' + esc(pick(s.message)).replace(/\n/g, '<br>') + '</p>' + byline(s) + '</div>';
+      sModal.innerHTML = '<div class="modal-box sm says-modal"><button type="button" class="modal-x" aria-label="' + esc(t('j.close')) + '"><i class="bi bi-x-lg"></i></button><i class="bi bi-quote says-q"></i><p class="says-full">' + fmtMsg(msgText(s), true) + '</p>' + byline(s) + '</div>';
       sModal.hidden = false; document.body.style.overflow = 'hidden'; $('.modal-x', sModal).focus();
     }
     document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-says]'); if (b) openSays(+b.getAttribute('data-says'), b); });
@@ -95,7 +102,7 @@
       var box = $('#saysBox'); if (says === null) return;
       if (!says.length) { box.innerHTML = '<div class="placeholder-box"><i class="bi bi-hourglass-split"></i><b>' + esc(t('soon')) + '</b><br>' + esc(t('soon.detail')) + '</div>'; return; }
       B.paged(box, says, 6, function (s) {
-        return '<article class="card says"><i class="bi bi-quote says-q"></i><p class="says-msg">' + esc(pick(s.message)) + '</p><button type="button" class="says-more" data-says="' + says.indexOf(s) + '">' + esc(t('com.more')) + ' <i class="bi bi-arrow-right-short"></i></button>' + byline(s) + '</article>';
+        return '<article class="card says"><i class="bi bi-quote says-q"></i><p class="says-msg">' + fmtMsg(msgText(s), false) + '</p><button type="button" class="says-more" data-says="' + says.indexOf(s) + '">' + esc(t('com.more')) + ' <i class="bi bi-arrow-right-short"></i></button>' + byline(s) + '</article>';
       }, 'cards');
     }
 
@@ -134,7 +141,7 @@
         '<h3 class="j-sec" data-i18n="j.s3"></h3>' +
         fld('date', 'j.date', '<input id="j-date" type="text" inputmode="numeric" maxlength="10" autocomplete="off" data-i18n-placeholder="j.date.ph">') +
         fld('place', 'j.place', '<input id="j-place" type="text" maxlength="50" data-i18n-placeholder="j.place.ph">') +
-        '<div class="field" data-k="exp"><label for="j-exp" data-i18n="j.exp"></label><textarea id="j-exp" maxlength="200" rows="3"></textarea><div class="hint" id="j-cnt">0/200</div><div class="err" role="alert"></div></div>' +
+        '<div class="field" data-k="exp"><label for="j-exp" data-i18n="j.exp"></label><textarea id="j-exp" maxlength="500" rows="4"></textarea><div class="hint" id="j-cnt">0/500</div><div class="err" role="alert"></div></div>' +
         '<div class="field" data-k="help"><label><span data-i18n="j.help"></span> <span class="req">*</span></label><div class="radios"><label><input type="radio" name="jhelp" value="Y"> <span data-i18n="j.yes"></span></label><label><input type="radio" name="jhelp" value="N" checked> <span data-i18n="j.no"></span></label></div></div>' +
         '<button class="btn btn-primary btn-block" type="submit" id="jSubmit"><i class="bi bi-send-fill"></i><span data-i18n="j.submit"></span></button>' +
         '</form></div>';
@@ -165,7 +172,7 @@
       district: function () { return $('#j-district', modal).value ? '' : 'j.e.req'; },
       date: function () { return dateErr($('#j-date', modal).value); },
       place: function () { var v = $('#j-place', modal).value.trim(); return !v ? 'j.e.req' : (v.length < 3 || v.length > 50) ? 'j.e.place' : ''; },
-      exp: function () { var v = $('#j-exp', modal).value.trim(); return v && (v.length < 3 || v.length > 200) ? 'j.e.exp' : ''; }
+      exp: function () { var v = $('#j-exp', modal).value.trim(); return v && (v.length < 3 || v.length > 500) ? 'j.e.exp' : ''; }
     };
     function check(k) {
       var wrap = $('.field[data-k="' + k + '"]', modal), key = V[k](), msg = $('.err', wrap);
@@ -182,7 +189,7 @@
         var d = e.target.value.replace(/\D/g, '').slice(0, 8), o = d.slice(0, 2);
         if (d.length > 2) o += '/' + d.slice(2, 4); if (d.length > 4) o += '/' + d.slice(4); e.target.value = o;
       });
-      $('#j-exp', modal).addEventListener('input', function (e) { $('#j-cnt', modal).textContent = e.target.value.length + '/200'; });
+      $('#j-exp', modal).addEventListener('input', function (e) { $('#j-cnt', modal).textContent = e.target.value.length + '/500'; });
       [['spouse', 'j-spouse'], ['email', 'j-email']].forEach(function (p) {
         $('#j-' + p[0] + 'Skip', modal).addEventListener('change', function (e) {
           var inp = $('#' + p[1], modal); inp.disabled = e.target.checked; if (e.target.checked) inp.value = '';
@@ -212,7 +219,7 @@
         'Contact Number': $('#j-phone', modal).value.trim(), 'Email': email,
         'District': dd.en, 'DistrictDisplay': dd[L()] || dd.en,
         'Marriage Date': $('#j-date', modal).value.trim(), 'Marriage Place': $('#j-place', modal).value.trim(),
-        'Experiance': $('#j-exp', modal).value.trim(),
+        'Message': $('#j-exp', modal).value.trim(),
         'Community Help': help, 'Community HelpDisplay': t(help === 'Y' ? 'j.yes' : 'j.no'),
         'Language': L() === 'kn' ? 'Kannada' : 'English', 'lang': L()
       };
