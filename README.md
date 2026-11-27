@@ -10,7 +10,7 @@ kuvempu-mantra-mangalya/
 │  ├─ css/style.css
 │  ├─ js/ (config.js, i18n.js, about-content.js, guide-content.js, docgen.js, app.js, browse.js, guidance.js, downloads.js)
 │  ├─ data/             <- videos.json, downloads.config.json (edit these); manifest.js is auto-generated
-│  ├─ downloads/mm-marriage-code-formats/   <- mm-marriage-code-format-1.pdf, -2.docx ...
+│  ├─ data/mm-marriage-code-formats/  <- mm-marriage-code-format-1.pdf, -2.docx ...
 │  └─ images/           <- page images (any format) + folders below
 │     ├─ mm-logo/                 mm-logo-1.png, mm-logo-2.svg ...        (Downloads > Logo)
 │     ├─ person-photos/               any file name, any format              (Downloads > Person Photos)
@@ -25,7 +25,7 @@ kuvempu-mantra-mangalya/
 - `frontend/images/home-page-images/` - Home personality cards: `kuvempu`, `tejaswi`, `basavanna`, `buddha`, `ambedkar` (add more in `PERSONALITIES` in `js/config.js`, file name without extension).
 - `frontend/images/about-page-images/` - About page: `kuvempu`, `tejaswi-rajeshwari-maduve`, `tejaswi-rajeshwari-maduve-invitation`, `mantra-mangalya-book`.
 - Folder galleries (any file name unless a pattern is shown): `mm-logo/` (mm-logo-1 ...), `person-photos/`, `sample-mm-invitations/` (sample-mm-invitation-1 ...), `mm-marriage-photos/`, `mm-community-couples/`.
-- Book: put `kuvempu-mantra-mangalya-book.pdf` in `frontend/downloads/` (last section of the Downloads page).
+- Book: put `kuvempu-mantra-mangalya-book.pdf` in `frontend/data/` (last section of the Downloads page).
 Missing images just show a blank frame. Push the files and the workflow regenerates `data/manifest.js` automatically.
 **Logo / favicon:** replace `frontend/favicon.svg` with your logo (or set `LOGO: "favicon.png"` in `js/config.js`).
 
@@ -147,3 +147,24 @@ After pasting `Code.gs` you MUST publish a new version: Deploy > Manage deployme
 ## Batch 14 notes
 - Link previews (WhatsApp, Instagram, Facebook...): every page has Open Graph / Twitter tags pointing to `https://mantramangalya.in/mm-logo.png`. **Put `mm-logo.png` directly in `frontend/`** (PNG/JPG, ideally 1200x630 or at least 600x600, under 300 KB). If the site domain changes, update the URLs in the `<head>` of each page. Social apps cache previews; use Facebook's Sharing Debugger to refresh Facebook/Instagram, and WhatsApp may need a new link or some hours.
 - Join form fields are laid out two per row.
+
+## Batch 15 notes
+
+**Community says – new lines and quotes** (`frontend/data/community-says.json`)
+- New line: write `\n` inside the text (`\n\n` for a blank line). Or give `message` as an array of lines.
+- Double quote: write `\"` inside the text. Text inside double quotes is shown **bold**.
+- Sample: `{ "message": { "kn": "…", "en": "Our wedding was simple.\n\"Mantra Mangalya gave us a new life\" - we are proud to say this.\n\nBest wishes to everyone." }, "name": "Ravi & Latha", "profession": "Teacher", "place": "Mysuru" }`
+- The card preview shows 2 lines (line breaks become spaces); "Read more" shows the full message with its line breaks.
+
+**Join community – Message column**
+- The "Experience / words to the community" field is saved to the `Message` column of `CommunityPeopleInfo` (max 500 characters; the column is added automatically if missing).
+- Republish `backend/Code.gs` as a **New version** (ping shows `v10-message-share`).
+
+**Share bar** (`frontend/js/share.js`): shown at the end of every page with WhatsApp, Facebook, Instagram, X and Threads. Instagram has no web share link, so it opens the device share sheet, or copies the link and opens Instagram.
+
+## Batch 16 notes
+- Community says: optional `"image": "file.jpg"` per item, file in `frontend/images/mm-community-says/`. Shown as a round photo (whole image, not cropped) beside name/profession/place; a couple icon appears when missing.
+- `kuvempu-mantra-mangalya-book.pdf` and `mm-marriage-code-formats/` now live in `frontend/data/` (paths updated in `data/downloads.config.json`). Move your existing files from `frontend/downloads/` to there.
+
+## Batch 17 notes
+- Join Community: Spouse Name is now mandatory (the "Spouse is no more (skip)" option is removed); the backend also rejects an empty spouse name. Republish `backend/Code.gs` as a New version (ping: `v11-spouse-required`).
